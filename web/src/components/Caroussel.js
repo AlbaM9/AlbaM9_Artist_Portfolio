@@ -31,7 +31,7 @@ const Caroussel = () => {
 
             <Slider {...settings}>
                 <div>
-                    <img className="carImg" src="https://m.media-amazon.com/images/I/71BlMzossmL._AC_UF894,1000_QL80_.jpg" alt="Imagen 1" />
+                    <img className="carImg" src="/images/DSC_0575.JPG" alt="Imagen 1" />
                 </div>
                 <div>
                     <img className="carImg" src="https://wallpapers.com/images/featured/zelda-rkp03okh2d43ik06.jpg" alt="Imagen 2" />
