@@ -1,9 +1,24 @@
 .header {
     display: flex;
-    gap: 20vw;
+    justify-content: space-between;
     background-color: aqua;
+    padding-right: 20px;
+
 
     .logo {
-        width: 100px;
+        width: auto;
+        height: 50px;
+        object-fit: cover;
     }
+
+    nav {
+        padding: 10px;
+
+        .navMenu {
+            display: flex;
+            gap: 5vw;
+            align-items: right;
+        }
+    }
+
 }

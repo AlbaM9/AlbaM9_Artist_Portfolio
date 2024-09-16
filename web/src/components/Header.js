@@ -3,8 +3,18 @@ const Header = ({ title }) => {
     return (
         <div className="header">
             <img src="https://m.media-amazon.com/images/I/71BlMzossmL._AC_UF894,1000_QL80_.jpg" className="logo"></img>
-            <h2>Holiwi</h2>
-            <p>Se me da fatal esto eh, concretamente como el ogt</p>
+
+            <nav>
+                <ul className="navMenu">
+                    <li>About me</li>
+                    <li>Gallery</li>
+                    <li>3D Models</li>
+                    <li>3D Printings</li>
+                    <li>Contact</li>
+                </ul>
+            </nav>
+
+
         </div>
     );
 };
