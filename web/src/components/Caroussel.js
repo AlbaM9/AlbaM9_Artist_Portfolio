@@ -27,7 +27,9 @@ const Caroussel = () => {
     if (!mounted) return null; // Evita renderizar en el servidor
 
     return (
-        <div>
+
+        <div className="carousel-container">
+
 
             <Slider {...settings}>
                 <div>
@@ -41,6 +43,7 @@ const Caroussel = () => {
                 </div>
             </Slider>
         </div>
+
     );
 };
 

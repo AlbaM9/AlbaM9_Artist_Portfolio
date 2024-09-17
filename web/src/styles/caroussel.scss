@@ -1,5 +1,34 @@
 .carImg {
     width: 100vw;
     height: 90vh;
-    object-fit: cover;
+    object-fit: contain;
+}
+
+.carousel-container {
+    position: relative; // Para que los dots se posicionen respecto a este contenedor
+
+    .slick-dots {
+        position: absolute;
+        bottom: 40px; // Ajusta la posición vertical de los dots
+        left: 50%; // Centra horizontalmente
+        transform: translateX(-50%); // Ajuste para centrar
+        z-index: 10; // Asegúrate de que los dots estén por encima de las imágenes
+    }
+
+    .slick-dots li button:before {
+        font-size: 12px; // Cambia el tamaño de los dots
+        color: white; // Cambia el color de los dots (puedes ajustar)
+    }
+
+    .slick-dots li.slick-active button:before {
+        color: white; // Color del dot activo (puedes ajustar)
+    }
+
+    .slide {
+        img {
+            width: 100%;
+            height: auto; // Asegura que la imagen mantenga su relación de aspecto
+        }
+    }
+
 }

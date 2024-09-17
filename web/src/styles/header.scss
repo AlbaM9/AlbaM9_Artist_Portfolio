@@ -6,7 +6,8 @@
     width: 100%;
     /* Fijar en la parte superior */
     z-index: 1000;
-    background-color: rgba(255, 255, 255, 0.432);
+    background-color: rgba(255, 255, 255, 0.096);
+
     /* Fondo blanco con transparencia */
 
 
@@ -27,6 +28,20 @@
             display: flex;
             gap: 5vw;
             align-items: right;
+        }
+
+        li {
+            /* Aplica el puntero a los enlaces del menú */
+            text-decoration: none;
+            color: white;
+            ;
+            cursor: pointer;
+            /* Cambia el cursor al pasar sobre el enlace */
+
+            &:hover {
+                text-decoration: underline;
+                /* Opcional: subraya los enlaces al pasar el ratón */
+            }
         }
     }
 

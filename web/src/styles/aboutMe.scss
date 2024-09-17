@@ -4,12 +4,19 @@
     align-items: center;
     margin-top: 7vh;
     gap: 7vh;
+    height: 100vh;
 
+    h1 {
+        color: white;
+        font-size: 30px;
+    }
 
     .aboutMe {
         display: flex;
         justify-content: center;
         gap: 5vw;
+
+
 
         .desc {
             //background-color: bisque;
@@ -21,9 +28,10 @@
 
 
             p {
-                background-color: azure;
+
                 padding: 20px;
                 width: 60%;
+                color: white;
             }
         }
 
@@ -32,7 +40,7 @@
             flex-direction: column;
             //background-color: aqua;
             padding: 30px;
-
+            color: white;
 
             img {
                 width: 500px;

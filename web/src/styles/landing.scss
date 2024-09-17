@@ -1,0 +1,29 @@
+.landing {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+
+    .logo {
+        width: 50vw;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    .navButtons {
+        margin-top: 30px;
+        display: flex;
+        gap: 5vw;
+
+        span {
+            //background-color: aliceblue;
+            border: 1px solid white;
+            padding: 5px;
+            border-radius: 20px;
+        }
+    }
+}

@@ -1,16 +1,17 @@
-// pages/index.js
+"use client";
 
-// Importa en tu archivo _app.js o _app.tsx
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import './styles.scss'; // Importa los estilos globales
+import './styles.scss';
 
+import React from 'react';
+import { Link } from 'react-scroll';
 
-
-import Header from '../components/Header'; // Asegúrate de que la ruta sea correcta
+import Header from '../components/Header';
 import Caroussel from "../components/Caroussel";
 import AboutMe from "../components/AboutMe";
 import Banners from "../components/Banners";
+import Landing from "@/components/Landing";
 
 export default function Home() {
 
@@ -18,13 +19,34 @@ export default function Home() {
 
   return (
     <>
-      <body>
-        <Header></Header>
-        <Caroussel></Caroussel>
+      <Header></Header>
+      <Landing></Landing>
+
+
+
+
+      <div id="about-me">
         <AboutMe></AboutMe>
-        <Banners backgroundImage='https://wallpapers.com/images/featured/zelda-rkp03okh2d43ik06.jpg' title="3D Models" link=""></Banners>
-        <Banners backgroundImage="/images/DSC_0587.JPG" title="3D Printings" link=" "></Banners>
-      </body >
+      </div>
+      <div id="gallery">
+        <Caroussel ></Caroussel>
+      </div>
+      <div id="models">
+        <div>
+          <Banners
+            backgroundImage='https://wallpapers.com/images/featured/zelda-rkp03okh2d43ik06.jpg'
+            title="3D Models"
+            link="">
+          </Banners>
+        </div>
+        <div id="printings">
+          <Banners
+            backgroundImage="/images/DSC_0587.JPG"
+            title="3D Printings"
+            link="">
+          </Banners>
+        </div>
+      </div>
 
     </>
   )
