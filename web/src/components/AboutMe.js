@@ -20,4 +20,4 @@ function AboutMe() {
     )
 }
 
-export default AboutMegit 
+export default AboutMe
