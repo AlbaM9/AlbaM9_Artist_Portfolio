@@ -7,8 +7,7 @@ function AboutMe() {
             <h1 className="title">About Me</h1>
             <section className="aboutMe">
                 <section className="desc">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
+                    <p>Hi! I’m Alba, a visual artist with a lifelong passion for creativity, and more recently, a programmer and 3D modeler. From my earliest sketches to the digital pieces I create today, I’ve always loved expressing ideas through form, color, and texture.</p> <p>As an adult, I discovered programming and 3D modeling, which opened up new creative possibilities. Coding allows me to build interactive designs, while 3D printing brings my ideas into the physical world.</p> <p>Whether I’m designing digital artwork or crafting 3D models, I’m passionate about blending art and technology. Thanks for visiting my portfolio—I hope you enjoy exploring my work as much as I’ve enjoyed creating it!</p>
 
                 </section>
                 <section className="nameImage">
@@ -21,4 +20,4 @@ function AboutMe() {
     )
 }
 
-export default AboutMe
+export default AboutMegit 

@@ -11,7 +11,7 @@
     }
 
     h1 {
-        font-size: 25px;
+        font-size: 30px;
     }
 
     .navButtons {
@@ -21,9 +21,20 @@
 
         span {
             //background-color: aliceblue;
+            font-size: 20px;
             border: 1px solid white;
-            padding: 5px;
+            padding: 10px;
             border-radius: 20px;
+
+            cursor: pointer;
+            /* Cambia el cursor al pasar sobre el enlace */
+
+            &:hover {
+                background-color: white;
+                border: 1px solid black;
+                opacity: 0.5;
+                color: black;
+            }
         }
     }
 }

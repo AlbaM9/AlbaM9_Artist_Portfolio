@@ -10,7 +10,7 @@ function Banners({ backgroundImage, title, link }) {
                 backgroundImage: `url(${backgroundImage})`
             }} >
                 <h1 className="title">{title}</h1>
-                <a>Ver modelos</a>
+
             </div>
         </section >
     )

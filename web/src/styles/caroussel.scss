@@ -1,10 +1,19 @@
 .carImg {
     width: 100vw;
-    height: 90vh;
-    object-fit: contain;
+    height: 80vh;
+    object-fit: cover;
+    object-position: top;
+}
+
+h1 {
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 5vh;
 }
 
 .carousel-container {
+    margin-bottom: 7vh;
     position: relative; // Para que los dots se posicionen respecto a este contenedor
 
     .slick-dots {
@@ -16,7 +25,7 @@
     }
 
     .slick-dots li button:before {
-        font-size: 12px; // Cambia el tamaño de los dots
+        font-size: 20px; // Cambia el tamaño de los dots
         color: white; // Cambia el color de los dots (puedes ajustar)
     }
 

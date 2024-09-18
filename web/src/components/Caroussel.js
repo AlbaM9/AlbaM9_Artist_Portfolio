@@ -7,6 +7,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import '../styles/caroussel.scss';
 
+import Banners from "./Banners";
+
 const Caroussel = () => {
     const [mounted, setMounted] = useState(false);
 
@@ -27,22 +29,32 @@ const Caroussel = () => {
     if (!mounted) return null; // Evita renderizar en el servidor
 
     return (
+        <>
 
-        <div className="carousel-container">
+            <h1>Jobs</h1>
+            <div className="carousel-container">
 
 
-            <Slider {...settings}>
-                <div>
-                    <img className="carImg" src="/images/DSC_0575.JPG" alt="Imagen 1" />
-                </div>
-                <div>
-                    <img className="carImg" src="https://wallpapers.com/images/featured/zelda-rkp03okh2d43ik06.jpg" alt="Imagen 2" />
-                </div>
-                <div>
-                    <img className="carImg" src="https://images2.alphacoders.com/130/1301855.jpg" alt="Imagen 3" />
-                </div>
-            </Slider>
-        </div>
+                <Slider {...settings}>
+                    <div>
+                        <Banners
+                            backgroundImage='/images/DSC_0587.JPG'
+                            title="3D Models"
+                            link="">
+                        </Banners>
+                    </div>
+                    <div>
+                        <Banners
+                            backgroundImage='/images/1624276288557.jpg'
+                            title="3D Prints"
+                            link="">
+                        </Banners>
+                    </div>
+
+                </Slider>
+            </div>
+
+        </>
 
     );
 };

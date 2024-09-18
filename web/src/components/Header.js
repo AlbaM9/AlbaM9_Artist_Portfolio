@@ -7,7 +7,7 @@ import { Link } from 'react-scroll';
 const Header = ({ title }) => {
     return (
         <div className="header">
-            {<img src="/images/black_mark.png" className="logo"></img>}
+            {<img ></img>}
 
             <nav>
                 <ul className="navMenu">

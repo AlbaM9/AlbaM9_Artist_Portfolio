@@ -31,22 +31,25 @@ export default function Home() {
       <div id="gallery">
         <Caroussel ></Caroussel>
       </div>
-      <div id="models">
-        <div>
-          <Banners
-            backgroundImage='https://wallpapers.com/images/featured/zelda-rkp03okh2d43ik06.jpg'
-            title="3D Models"
-            link="">
-          </Banners>
+      <div className="bans">
+        <div id="models">
+          {/*<div>
+            <Banners
+              backgroundImage='https://wallpapers.com/images/featured/zelda-rkp03okh2d43ik06.jpg'
+              title="3D Models"
+              link="">
+            </Banners>
+          </div>*/}
         </div>
-        <div id="printings">
+        {/*<div id="printings">
           <Banners
             backgroundImage="/images/DSC_0587.JPG"
             title="3D Printings"
             link="">
           </Banners>
-        </div>
+        </div>*/}
       </div>
+
 
     </>
   )
