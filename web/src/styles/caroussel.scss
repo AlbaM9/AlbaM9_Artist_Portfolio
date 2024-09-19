@@ -1,10 +1,10 @@
-.carImg {
+/*.carImg {
     width: 100vw;
     height: 80vh;
     object-fit: cover;
     object-position: top;
 }
-
+*/
 h1 {
     color: white;
     font-size: 30px;
@@ -13,13 +13,15 @@ h1 {
 }
 
 .carousel-container {
+
     margin-bottom: 7vh;
     position: relative; // Para que los dots se posicionen respecto a este contenedor
+    transform: translateX(27%); // Ajuste para centrar
 
     .slick-dots {
         position: absolute;
         bottom: 40px; // Ajusta la posición vertical de los dots
-        left: 50%; // Centra horizontalmente
+        left: 23%; // Centra horizontalmente
         transform: translateX(-50%); // Ajuste para centrar
         z-index: 10; // Asegúrate de que los dots estén por encima de las imágenes
     }

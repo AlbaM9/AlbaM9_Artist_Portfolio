@@ -1,25 +1,28 @@
-.banSect {}
-
-.banner {
-    width: 45vw;
-    height: 80vh;
-    background-size: cover;
-    background-position: top;
-    background-repeat: no-repeat;
-    border-radius: 50%;
-
+.contactMe {
+    margin-top: 10vh;
+    margin-bottom: 10vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 10vw;
+    // margin-left: 15vw;
+
+    font-size: 20px;
+    color: white;
 
 
-    h1 {
+    div {
+        width: 45vw;
+    }
+
+    a {
+
+        font-size: 20px;
+        border: 1px solid white;
         padding: 10px;
-        border: 2px solid white;
-        font-size: 30px;
         border-radius: 20px;
         cursor: pointer;
+
 
         transition: all 0.3s ease-in-out;
 
@@ -27,10 +30,14 @@
         &:hover {
             background-color: white;
             border: 1px solid black;
-            opacity: 0.8;
+            opacity: 0.5;
             color: black;
-            transform: scale(1.1);
+            transform: scale(1.5);
 
         }
     }
+
+
+
+
 }

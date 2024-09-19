@@ -8,6 +8,7 @@
 
     .logo {
         width: 50vw;
+        opacity: 0.6;
     }
 
     h1 {
@@ -20,21 +21,24 @@
         gap: 5vw;
 
         span {
-            //background-color: aliceblue;
             font-size: 20px;
             border: 1px solid white;
             padding: 10px;
             border-radius: 20px;
-
             cursor: pointer;
-            /* Cambia el cursor al pasar sobre el enlace */
+
+            transition: all 0.3s ease-in-out;
+
 
             &:hover {
                 background-color: white;
                 border: 1px solid black;
                 opacity: 0.5;
                 color: black;
+                transform: scale(1.1);
+                /* Escala al 120% en lugar de scale: 120%; */
             }
         }
+
     }
 }

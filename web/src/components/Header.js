@@ -14,16 +14,16 @@ const Header = ({ title }) => {
                     <li><Link to="about-me" smooth={true} duration={500}>
                         About Me
                     </Link></li>
-                    <li><Link to="gallery" smooth={true} duration={500}>
-                        Gallery
-                    </Link></li>
+
                     <li> <Link to="models" smooth={true} duration={500}>
                         3D Models
                     </Link></li>
                     <li> <Link to="printings" smooth={true} duration={500}>
                         3D Printings
                     </Link></li>
-                    <li>Contact</li>
+                    <li> <Link to="contact" smooth={true} duration={500}>
+                        Contact
+                    </Link></li>
                 </ul>
             </nav>
 

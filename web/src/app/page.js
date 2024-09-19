@@ -13,13 +13,15 @@ import AboutMe from "../components/AboutMe";
 import Banners from "../components/Banners";
 import Landing from "@/components/Landing";
 
+import Contact from "@/components/Contact";
+
 export default function Home() {
 
 
 
   return (
     <>
-      <Header></Header>
+      {<Header></Header>}
       <Landing></Landing>
 
 
@@ -32,22 +34,11 @@ export default function Home() {
         <Caroussel ></Caroussel>
       </div>
       <div className="bans">
-        <div id="models">
-          {/*<div>
-            <Banners
-              backgroundImage='https://wallpapers.com/images/featured/zelda-rkp03okh2d43ik06.jpg'
-              title="3D Models"
-              link="">
-            </Banners>
-          </div>*/}
-        </div>
-        {/*<div id="printings">
-          <Banners
-            backgroundImage="/images/DSC_0587.JPG"
-            title="3D Printings"
-            link="">
-          </Banners>
-        </div>*/}
+
+
+      </div>
+      <div id="contact" >
+        <Contact></Contact>
       </div>
 
 

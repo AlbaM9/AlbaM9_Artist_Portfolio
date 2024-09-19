@@ -38,14 +38,14 @@ const Caroussel = () => {
                 <Slider {...settings}>
                     <div>
                         <Banners
-                            backgroundImage='/images/DSC_0587.JPG'
+                            backgroundImage='/images/TOTED.png'
                             title="3D Models"
                             link="">
                         </Banners>
                     </div>
                     <div>
                         <Banners
-                            backgroundImage='/images/1624276288557.jpg'
+                            backgroundImage='/images/MAJMOD.png'
                             title="3D Prints"
                             link="">
                         </Banners>
