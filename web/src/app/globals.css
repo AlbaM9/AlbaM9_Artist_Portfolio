@@ -2,4 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {}
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Si quieres mantener una clase de estilo personalizada para la fuente */
+* {
+    font-family: 'Dancing Script', cursive;
+    /*font-family: 'Roboto', sans-serif;*/
+    /* Aplica Roboto a todos los elementos */
+
+}

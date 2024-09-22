@@ -1,33 +1,42 @@
 "use client";
 
-import '../styles/header.scss'; // Importa los estilos globales
+//import '../styles/header.scss';
 import React from 'react';
 import { Link } from 'react-scroll';
 
 const Header = ({ title }) => {
     return (
-        <div className="header">
-            {<img ></img>}
+        <div className="flex justify-between items-center fixed top-0 w-full z-50 bg-white bg-opacity-10 px-2 py-2  ">
+            <img
+                src="images/logoinale.png"
+                alt="Logo"
+                className="w-12 h-12 object-contain ml-10"
+            />
 
             <nav>
-                <ul className="navMenu">
-                    <li><Link to="about-me" smooth={true} duration={500}>
-                        About Me
-                    </Link></li>
-
-                    <li> <Link to="models" smooth={true} duration={500}>
-                        3D Models
-                    </Link></li>
-                    <li> <Link to="printings" smooth={true} duration={500}>
-                        3D Printings
-                    </Link></li>
-                    <li> <Link to="contact" smooth={true} duration={500}>
-                        Contact
-                    </Link></li>
+                <ul className="flex space-x-20 items-center mr-5">
+                    <li>
+                        <Link to="about-me" smooth={true} duration={500} className="text-white cursor-pointer hover:text-gray-600">
+                            About Me
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="models" smooth={true} duration={500} className="text-white cursor-pointer hover:text-gray-600">
+                            3D Models
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="printings" smooth={true} duration={500} className="text-white cursor-pointer hover:text-gray-600">
+                            3D Printings
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="contact" smooth={true} duration={500} className="text-white cursor-pointer hover:text-gray-600">
+                            Contact
+                        </Link>
+                    </li>
                 </ul>
             </nav>
-
-
         </div>
     );
 };
