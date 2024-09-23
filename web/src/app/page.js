@@ -18,8 +18,8 @@ import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
-    <div className=" italic leading-tight bg-cover bg-top bg-no-repeat "
-      style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url('/images/castlea.jpg')" }}>
+    <div className=" italic leading-tight bg-cover bg-top bg-fixed bg-no-repeat "
+      style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('/images/BG_WebApaisant.jpg')" }}>
 
       {/* Header */}
       <Header />

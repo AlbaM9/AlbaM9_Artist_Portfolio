@@ -5,9 +5,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+@layer components {
+    .reveal-animation {
+        @apply opacity-0 filter blur-lg;
+        /* Inicialmente invisible y desenfocado */
+        animation: reveal 2s ease forwards;
+        /* Animación personalizada */
+    }
+
+    @keyframes reveal {
+        0% {
+            clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0);
+            /* Todo el contenido está oculto */
+            opacity: 0;
+            /* Invisible al inicio */
+            filter: blur(20px);
+            /* Desenfoque inicial */
+        }
+
+        30% {
+            clip-path: polygon(90% 0, 100% 100%, 0 100%, 0 0);
+            /* Forma irregular para el efecto de pintura */
+            opacity: 0.5;
+            /* Se vuelve semi-transparente */
+            filter: blur(10px);
+            /* Menos desenfoque a la mitad */
+        }
+
+        70% {
+            clip-path: polygon(70% 0, 100% 100%, 0 100%, 0 0);
+            /* Forma aún más revelada */
+            opacity: 0.8;
+            /* Más visible */
+            filter: blur(5px);
+            /* Menos desenfoque */
+        }
+
+        100% {
+            clip-path: inset(0 0 0 0);
+            /* Todo el contenido es visible */
+            opacity: 1;
+            /* Totalmente visible al final */
+            filter: blur(1.3);
+            /* Sin desenfoque al final */
+        }
+    }
+}
+
 /* Si quieres mantener una clase de estilo personalizada para la fuente */
 * {
     font-family: 'Dancing Script', cursive;
+
     /*font-family: 'Roboto', sans-serif;*/
     /* Aplica Roboto a todos los elementos */
 
