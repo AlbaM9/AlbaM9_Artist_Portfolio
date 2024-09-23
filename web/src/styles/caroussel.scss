@@ -12,17 +12,17 @@ h1 {
     margin-bottom: 5vh;
 }
 
-.carousel-container {
+/*.carousel-container {
 
     margin-bottom: 7vh;
     position: relative; // Para que los dots se posicionen respecto a este contenedor
-    transform: translateX(27%); // Ajuste para centrar
+    //transform: translateX(0px); // Ajuste para centrar
 
     .slick-dots {
         position: absolute;
         bottom: 40px; // Ajusta la posición vertical de los dots
         left: 23%; // Centra horizontalmente
-        transform: translateX(-50%); // Ajuste para centrar
+        //transform: translateX(-%); // Ajuste para centrar
         z-index: 10; // Asegúrate de que los dots estén por encima de las imágenes
     }
 
@@ -42,4 +42,4 @@ h1 {
         }
     }
 
-}
+}*/
