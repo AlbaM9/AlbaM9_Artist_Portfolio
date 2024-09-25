@@ -15,6 +15,7 @@ import AboutMe from "../components/AboutMe";
 import Landing from "@/components/Landing";
 
 import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -39,6 +40,8 @@ export default function Home() {
       <section id="contact" className="py-16">
         <Contact />
       </section>
+
+      <Footer></Footer>
     </div>
   )
 }

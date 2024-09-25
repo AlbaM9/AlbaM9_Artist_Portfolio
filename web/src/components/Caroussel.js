@@ -75,6 +75,13 @@ const Caroussel = () => {
                 <Slider {...settings}>
                     <div>
                         <Banners
+                            backgroundImage='/images/logoinaleb.png'
+                            title="All"
+                            link="">
+                        </Banners>
+                    </div>
+                    <div>
+                        <Banners
                             backgroundImage='/images/TOTED.png'
                             title="3D Models"
                             link="">
@@ -87,6 +94,7 @@ const Caroussel = () => {
                             link="">
                         </Banners>
                     </div>
+
                 </Slider>
             </div>
         </>

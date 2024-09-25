@@ -7,11 +7,15 @@ import { Link } from 'react-scroll';
 const Header = ({ title }) => {
     return (
         <div className="flex justify-between items-center fixed top-0 w-full z-50 bg-white bg-opacity-10 px-2 py-2  ">
-            <img
-                src="images/logoinale.png"
-                alt="Logo"
-                className="w-12 h-12 object-contain ml-10"
-            />
+
+            <a href="#" className="text-white cursor-pointer hover:text-gray-600  hover:scale-110 transform transition duration-300">
+                <img
+
+                    src="images/logoinale.png"
+                    alt="Logo"
+                    className="w-12 h-12 object-contain ml-10"
+                />
+            </a>
 
             <nav>
                 <ul className="flex space-x-20 items-center mr-5">

@@ -11,7 +11,7 @@ function Landing() {
                 className="mb-4 bg-no-repeat w-full h-[60%] mt-10 reveal-animation"
                 style={{
                     backgroundImage:
-                        "radial-gradient(circle at center, rgba(0, 0, 0, 0.3), transparent 70%), url('/images/logoinale.png')",
+                        "radial-gradient(circle at center, rgba(0, 0, 0, 0.3), transparent 70%), url('/images/logofinalefix2.png')",
                     backgroundSize: "contain",
                     backgroundPosition: "center",
 
