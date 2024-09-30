@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-const Footer = () => {
+const Footer: React.FC<any> = () => {
     return (
         <footer className="w-full bg-white bg-opacity-10 py-6 mt-10">
             <div className="flex justify-end gap-[33vw]

@@ -1,8 +1,13 @@
 import React from 'react'
 //import '../styles/banners.scss'; // Importa los estilos globales
+interface BannersProps {
+    backgroundImage: string;
+    title: string;
+    link?: string; // Si 'link' es opcional, puedes usar '?'
+}
 
 
-function Banners({ backgroundImage, title }) {
+const Banners: React.FC<BannersProps> = ({ backgroundImage, title, link }) => {
     return (
         <section className="flex justify-center items-center">
             <div

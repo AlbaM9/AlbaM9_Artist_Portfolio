@@ -9,8 +9,15 @@ import "slick-carousel/slick/slick-theme.css";
 
 import Banners from "./Banners";
 
-const PreviousArrow = (props) => {
-    const { className, style, onClick } = props;
+interface ArrowProps {
+    className?: string;
+    style?: React.CSSProperties;
+    onClick?: () => void;
+}
+
+
+const PreviousArrow: React.FC<ArrowProps> = ({ className, style, onClick }) => {
+
     return (
         <div
             className={`${className}  flex items-center justify-center w-12 h-12 rounded-full z-10 cursor-pointer text-3xl`} // Clases de Tailwind
@@ -28,8 +35,8 @@ const PreviousArrow = (props) => {
     );
 };
 
-const NextArrow = (props) => {
-    const { className, style, onClick } = props;
+const NextArrow: React.FC<ArrowProps> = ({ className, style, onClick }) => {
+
     return (
         <div
             className={`${className} p-2 z-10 cursor-pointer w-3`} // Clases de Tailwind
@@ -70,7 +77,7 @@ const Caroussel = () => {
 
     return (
         <>
-            <h1 class="text-white text-3xl text-center mb-[5vh]">Jobs</h1>
+            <h1 className="text-white text-3xl text-center mb-[5vh]">Jobs</h1>
             <div className="carousel-container">
                 <Slider {...settings}>
                     <div>
