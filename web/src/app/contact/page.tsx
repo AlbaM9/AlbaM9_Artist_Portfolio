@@ -3,6 +3,8 @@
 // app/contact/page.tsx
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
+import '../globals.css';
+
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
@@ -52,14 +54,7 @@ const ContactForm: React.FC = () => {
 
             <Header />
             <section className="flex flex-col items-center h-[100vh] text-white p-10 "
-                style={{
-                    backgroundImage:
-                        "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),  url('/images/playground.jpg')",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
 
-
-                }}
             >
                 <h2 className="text-4xl mb-6 mt-[5vh]">Contact Me</h2>
                 {success && <p className="text-green-400">Email sent successfully!</p>}

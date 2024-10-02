@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "title": "Print 1",
+        "description": "Descripción de 2D Print 1. Una ilustración de alta calidad.",
+        "category": "2d-print",
+        "images": [
+            "https://picsum.photos/400/300",
+            "https://picsum.photos/500/400"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Print 2",
+        "description": "Descripción de 2D Print 2. Póster artístico para eventos.",
+        "category": "2d-print",
+        "images": [
+            "https://picsum.photos/450/350",
+            "https://picsum.photos/550/450"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Print 3",
+        "description": "Descripción de 2D Print 3. Diseño gráfico para impresión en ropa.",
+        "category": "2d-print",
+        "images": [
+            "https://picsum.photos/420/320",
+            "https://picsum.photos/520/420"
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Model 1",
+        "description": "Descripción de Model 1. Modelo 3D de un personaje para videojuegos.",
+        "category": "models",
+        "images": [
+            "https://picsum.photos/460/360",
+            "https://picsum.photos/560/460"
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Model 2",
+        "description": "Descripción de Model 2. Modelo 3D para impresión en 3D.",
+        "category": "models",
+        "images": [
+            "https://picsum.photos/470/370",
+            "https://picsum.photos/570/470"
+        ]
+    },
+    {
+        "id": 6,
+        "title": "Model 3",
+        "description": "Descripción de Model 3. Escultura digital para cine.",
+        "category": "models",
+        "images": [
+            "https://picsum.photos/480/380",
+            "https://picsum.photos/580/480"
+        ]
+    }
+]

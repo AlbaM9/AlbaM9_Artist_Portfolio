@@ -22,7 +22,7 @@ const Landing: React.FC<any> = () => {
             </div>
 
 
-            <h1 className="text-3xl md:text-5xl pt-5">Art & Modeling</h1>
+            <h1 className="text-3xl md:text-5xl pt-5">3D Printing & Modeling</h1>
 
 
             <div className="mt-10 flex gap-20 ">

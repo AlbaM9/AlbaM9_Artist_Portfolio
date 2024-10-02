@@ -5,15 +5,21 @@ import dynamic from "next/dynamic";
 const Slider = dynamic(() => import("react-slick"), { ssr: false });
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+
+
+
 //import '../styles/caroussel.scss';
 
 import Banners from "./Banners";
+import { title } from "process";
 
 interface ArrowProps {
     className?: string;
     style?: React.CSSProperties;
     onClick?: () => void;
 }
+
 
 
 const PreviousArrow: React.FC<ArrowProps> = ({ className, style, onClick }) => {
@@ -81,11 +87,12 @@ const Caroussel = () => {
             <div className="carousel-container">
                 <Slider {...settings}>
                     <div>
-                        <Banners
+
+                        {<Banners
                             backgroundImage='/images/logoinaleb.png'
                             title="All"
-                            link="">
-                        </Banners>
+                            link="/jobs">
+                        </Banners>}
                     </div>
                     <div>
                         <Banners

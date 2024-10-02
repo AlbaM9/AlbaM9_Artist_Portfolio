@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 
-import React from 'react';
+import React, { Component } from 'react';
 //import { Link } from 'react-scroll'; // Si usas este componente, asegúrate de que está correctamente importado y tipado
 import './globals.css';
 
@@ -14,6 +14,8 @@ import AboutMe from "../components/AboutMe";
 import Landing from "../components/Landing";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
+
+import Banners from "../components/Banners";
 
 // Definimos el tipo de las props si fuera necesario
 interface HomeProps { }
