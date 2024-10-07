@@ -8,6 +8,19 @@ import '../globals.css';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
+import Link from 'next/link'; // Importa el Link de Next.js
+
+
+const menuItems = [
+    <Link href="/" className="text-white cursor-pointer hover:text-gray-600 hover:scale-110 transform transition duration-300">Home
+
+    </Link>,
+    <Link href="/jobs" className="text-white cursor-pointer hover:text-gray-600 hover:scale-110 transform transition duration-300">Jobs
+
+    </Link>,
+];
+
+
 const ContactForm: React.FC = () => {
     const [name, setName] = useState<string>('');
     const [email, setEmail] = useState<string>('');
@@ -52,7 +65,7 @@ const ContactForm: React.FC = () => {
             }}
         >
 
-            <Header />
+            <Header menuItems={menuItems} />
             <section className="flex flex-col items-center h-[100vh] text-white p-10 "
 
             >

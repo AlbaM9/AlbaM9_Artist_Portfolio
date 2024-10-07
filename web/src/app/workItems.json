@@ -4,6 +4,11 @@
         "title": "Print 1",
         "description": "Descripción de 2D Print 1. Una ilustración de alta calidad.",
         "category": "2d-print",
+        "tags": [
+            "zelda",
+            "poster",
+            "event"
+        ],
         "images": [
             "https://picsum.photos/400/300",
             "https://picsum.photos/500/400"
@@ -14,6 +19,11 @@
         "title": "Print 2",
         "description": "Descripción de 2D Print 2. Póster artístico para eventos.",
         "category": "2d-print",
+        "tags": [
+            "poster",
+            "art",
+            "event"
+        ],
         "images": [
             "https://picsum.photos/450/350",
             "https://picsum.photos/550/450"
@@ -24,6 +34,11 @@
         "title": "Print 3",
         "description": "Descripción de 2D Print 3. Diseño gráfico para impresión en ropa.",
         "category": "2d-print",
+        "tags": [
+            "graphic design",
+            "clothing",
+            "fashion"
+        ],
         "images": [
             "https://picsum.photos/420/320",
             "https://picsum.photos/520/420"
@@ -34,6 +49,11 @@
         "title": "Model 1",
         "description": "Descripción de Model 1. Modelo 3D de un personaje para videojuegos.",
         "category": "models",
+        "tags": [
+            "3D",
+            "character",
+            "video game"
+        ],
         "images": [
             "https://picsum.photos/460/360",
             "https://picsum.photos/560/460"
@@ -44,6 +64,11 @@
         "title": "Model 2",
         "description": "Descripción de Model 2. Modelo 3D para impresión en 3D.",
         "category": "models",
+        "tags": [
+            "3D",
+            "print",
+            "sculpture"
+        ],
         "images": [
             "https://picsum.photos/470/370",
             "https://picsum.photos/570/470"
@@ -54,6 +79,11 @@
         "title": "Model 3",
         "description": "Descripción de Model 3. Escultura digital para cine.",
         "category": "models",
+        "tags": [
+            "digital sculpture",
+            "film",
+            "art"
+        ],
         "images": [
             "https://picsum.photos/480/380",
             "https://picsum.photos/580/480"

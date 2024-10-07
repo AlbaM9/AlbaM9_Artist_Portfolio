@@ -20,6 +20,10 @@ interface ArrowProps {
     onClick?: () => void;
 }
 
+interface CarouselProps {
+    items: any[];  // Lista de datos para los componentes
+    Component: React.ComponentType<any>; // Componente pasado como prop
+}
 
 
 const PreviousArrow: React.FC<ArrowProps> = ({ className, style, onClick }) => {
@@ -58,7 +62,7 @@ const NextArrow: React.FC<ArrowProps> = ({ className, style, onClick }) => {
     );
 };
 
-const Caroussel = () => {
+const Caroussel: React.FC<CarouselProps> = ({ items, Component }) => {
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
@@ -86,7 +90,14 @@ const Caroussel = () => {
             <h1 className="text-white text-3xl text-center mb-[5vh]">Jobs</h1>
             <div className="carousel-container">
                 <Slider {...settings}>
-                    <div>
+
+                    {items.map((item, index) => (
+                        <div key={index}>
+                            {/* Renderizamos el componente que se pasa como prop */}
+                            <Component {...item} />
+                        </div>
+                    ))}
+                    {/*<div>
 
                         {<Banners
                             backgroundImage='/images/logoinaleb.png'
@@ -107,7 +118,7 @@ const Caroussel = () => {
                             title="3D Prints"
                             link="">
                         </Banners>
-                    </div>
+                    </div>*/}
 
                 </Slider>
             </div>
