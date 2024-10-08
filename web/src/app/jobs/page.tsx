@@ -7,6 +7,15 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Link from 'next/link';
 
+interface Work {
+    id: number;
+    title: string;
+    description: string;
+    category: string;
+    tags: string[];
+    images: string[];
+}
+
 const JobsPage: React.FC = () => {
     const router = useRouter();
     const searchParams = useSearchParams();
@@ -31,7 +40,7 @@ const JobsPage: React.FC = () => {
     ];
 
     // Filtrar trabajos según la categoría y la búsqueda
-    const filteredWorks = workItems.filter(work => {
+    const filteredWorks = workItems.filter((work: Work) => {
         const matchesCategory = activeTab === 'all' || work.category === activeTab;
         const matchesSearch =
             work.title.toLowerCase().includes(searchText.toLowerCase()) ||
@@ -40,6 +49,11 @@ const JobsPage: React.FC = () => {
 
         return matchesCategory && matchesSearch;
     });
+
+
+    const handleImageClick = (workId: number) => {
+        router.push(`/detail/${workId}`); // Redirige a la página de detalle con el ID del trabajo
+    };
 
     return (
         <div className="bg-cover bg-top bg-fixed bg-no-repeat" style={{
@@ -81,22 +95,29 @@ const JobsPage: React.FC = () => {
                     />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-28">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-28 p-10">
                     {filteredWorks.length > 0 ? (
                         filteredWorks.map((work) => (
-                            <div key={work.id} className="rounded-lg p-4 shadow-lg">
+                            <div key={work.id} className="rounded-lg p-4 shadow-lg flex flex-col justify-center items-center text-center">
                                 <h3 className="font-bold text-xl mb-2">{work.title}</h3>
                                 <p>{work.description}</p>
-                                <img src={work.images[0]} className="w-full h-auto object-cover mt-4 rounded-full aspect-square" alt={`Imagen de ${work.title}`} />
+
+                                <img
+                                    src={work.images[0]}
+                                    className="w-full h-auto object-cover mt-10 rounded-full aspect-square hover:scale-110 transform transition duration-300 cursor-pointer"
+                                    alt={`Imagen de ${work.title}`}
+                                    onClick={() => handleImageClick(work.id)} // Pasa el ID del trabajo al hacer clic
+                                />
+
                             </div>
                         ))
                     ) : (
-                        // Mensaje de no hay trabajos
-                        <div className="col-span-1 md:col-span-2 lg:col-span-3 flex   text-center text-xl text-white h-[100vh]">
-                            Sorry, I have not worked on this yet! Keep in touch :)
+                        <div className="col-span-1 md:col-span-2 lg:col-span-3 flex justify-center items-center text-center text-xl text-white h-[100vh]">
+                            "Sorry, I have not worked on this yet! Keep in touch :)"
                         </div>
                     )}
                 </div>
+
             </div>
             <Footer />
         </div>

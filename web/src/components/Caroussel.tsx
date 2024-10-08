@@ -7,13 +7,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 
-
-
-//import '../styles/caroussel.scss';
-
-import Banners from "./Banners";
-import { title } from "process";
-
 interface ArrowProps {
     className?: string;
     style?: React.CSSProperties;
@@ -97,28 +90,6 @@ const Caroussel: React.FC<CarouselProps> = ({ items, Component }) => {
                             <Component {...item} />
                         </div>
                     ))}
-                    {/*<div>
-
-                        {<Banners
-                            backgroundImage='/images/logoinaleb.png'
-                            title="All"
-                            link="/jobs">
-                        </Banners>}
-                    </div>
-                    <div>
-                        <Banners
-                            backgroundImage='/images/TOTED.png'
-                            title="3D Models"
-                            link="">
-                        </Banners>
-                    </div>
-                    <div>
-                        <Banners
-                            backgroundImage='/images/MAJMOD.png'
-                            title="3D Prints"
-                            link="">
-                        </Banners>
-                    </div>*/}
 
                 </Slider>
             </div>

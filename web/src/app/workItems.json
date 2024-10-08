@@ -1,16 +1,18 @@
 [
     {
         "id": 1,
-        "title": "Print 1",
-        "description": "Descripción de 2D Print 1. Una ilustración de alta calidad.",
+        "title": "Majora´s Mask",
+        "description": "Legend of Zelda: Majora´s Mask",
+        "detail": "Una representación de Majora's Mask, un título icónico de la saga Zelda, que explora temas de tiempo y transformación. Este trabajo captura la esencia oscura del juego.",
         "category": "2d-print",
         "tags": [
             "zelda",
-            "poster",
-            "event"
+            "retro",
+            "videogames",
+            "majora"
         ],
         "images": [
-            "https://picsum.photos/400/300",
+            "/images/MAJMOD.png",
             "https://picsum.photos/500/400"
         ]
     },
@@ -18,6 +20,7 @@
         "id": 2,
         "title": "Print 2",
         "description": "Descripción de 2D Print 2. Póster artístico para eventos.",
+        "detail": "Un póster diseñado específicamente para eventos artísticos, ideal para capturar la atención y transmitir un mensaje visual poderoso.",
         "category": "2d-print",
         "tags": [
             "poster",
@@ -33,6 +36,7 @@
         "id": 3,
         "title": "Print 3",
         "description": "Descripción de 2D Print 3. Diseño gráfico para impresión en ropa.",
+        "detail": "Un diseño gráfico innovador creado para ser impreso en ropa, combinando estilo y funcionalidad. Perfecto para la moda contemporánea.",
         "category": "2d-print",
         "tags": [
             "graphic design",
@@ -48,6 +52,7 @@
         "id": 4,
         "title": "Model 1",
         "description": "Descripción de Model 1. Modelo 3D de un personaje para videojuegos.",
+        "detail": "Un modelo 3D detallado de un personaje de videojuego, diseñado para ser utilizado en entornos de juego, con un enfoque en la estética y la funcionalidad.",
         "category": "models",
         "tags": [
             "3D",
@@ -63,6 +68,7 @@
         "id": 5,
         "title": "Model 2",
         "description": "Descripción de Model 2. Modelo 3D para impresión en 3D.",
+        "detail": "Un modelo 3D optimizado para impresión, creado para esculturas físicas y demostraciones artísticas. Ideal para proyectos creativos.",
         "category": "models",
         "tags": [
             "3D",
@@ -78,6 +84,7 @@
         "id": 6,
         "title": "Model 3",
         "description": "Descripción de Model 3. Escultura digital para cine.",
+        "detail": "Escultura digital que puede ser utilizada en producciones cinematográficas, ofreciendo un alto nivel de detalle y versatilidad.",
         "category": "models",
         "tags": [
             "digital sculpture",

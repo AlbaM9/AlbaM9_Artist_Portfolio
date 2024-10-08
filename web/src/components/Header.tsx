@@ -15,7 +15,7 @@ const Header: React.FC<HeaderProps> = ({ menuItems }) => {
 
             <Link href="/" className="text-white cursor-pointer hover:text-gray-600 hover:scale-110 transform transition duration-300">
                 <img
-                    src="images/logoinale.png"
+                    src="/images/logoinale.png"
                     alt="Logo"
                     className="w-12 h-12 object-contain ml-10"
                 />
