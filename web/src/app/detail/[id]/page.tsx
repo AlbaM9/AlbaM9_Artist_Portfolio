@@ -16,6 +16,7 @@ interface Work {
     description: string;
     images: string[];
     detail: string;
+    linkThingiverse: string
 }
 
 const Detail = () => {
@@ -47,14 +48,15 @@ const Detail = () => {
         }}>
             <Header menuItems={menuItems} />
             <div className='p-16'>
-                <div className="flex-grow p-5 mt-16"> {/* Flex-grow para ocupar el espacio restante */}
+                <div className="flex-grow p-5 mt-16 justify-center"> {/* Flex-grow para ocupar el espacio restante */}
                     <h1 className="text-4xl font-bold text-white text-center mb-4">{work.title}</h1>
                     <p className="mt-2 text-lg text-white text-center">{work.description}</p>
                 </div>
-                <div className="flex flex-col lg:flex-row mt-16"> {/* Cambia a flex-row en pantallas grandes */}
 
+                <div className="flex flex-row mt-16 justify-between gap-10"> {/* Flex-row con gap entre elementos */}
+                    {/* Imagen */}
                     {work.images && work.images.length > 0 && (
-                        <div className="flex justify-center  mb-8 flex-shrink-0 w-full" > {/* Agrega flex-shrink-0 para evitar que la imagen se encoja */}
+                        <div className="flex-shrink-0 pl-16"> {/* flex-shrink-0 evita que la imagen se encoja */}
                             <img
                                 src={work.images[0]} // Muestra la primera imagen
                                 alt={`Imagen de ${work.title}`}
@@ -62,22 +64,51 @@ const Detail = () => {
                             />
                         </div>
                     )}
-                    <div className="flex-grow p-5 mt-4 "> {/* Contenedor para los detalles */}
-                        <p className="mt-4 text-white text-center">{work.detail}</p>
+
+                    {/* Detalles del trabajo */}
+                    <div className="p-10text-white text-left flex-grow pl-8"> {/* flex-grow para que el texto crezca con el espacio disponible */}
+                        <p className="text-lg mt-10">{work.detail}</p>
+                        {work.linkThingiverse && (
+
+                            <div className='flex flex-col '>
+                                <p className="text-lg mt-10">Get model?</p>
+                                <a href={work.linkThingiverse}
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                    <img
+                                        src="/images/logoTV.png"
+                                        alt={`Imagen adicional de ${work.title}`}
+                                        className="rounded-lg shadow-md h-[40px] w-[40px] mt-4 transition-transform duration-300 hover:scale-150" // Ajusta el tamaño de la imagen
+                                    />
+                                </a>
+                            </div>)}
+                        <div className='flex flex-col '>
+                            <p className="text-lg mt-10">Do we talk?</p>
+                            <Link
+                                href="/contact" // Cambia 'to' por 'href' y utiliza el nombre de la ruta en minúsculas.
+                                className="w-[200px] text-lg border border-white rounded-full px-4 py-2 transition-all duration-300 hover:bg-white hover:border-black hover:text-black transform hover:scale-110 mt-4"
+                            >
+                                Contact me
+                            </Link>
+                        </div>
+
                     </div>
                 </div>
-                {/* Aquí puedes agregar más detalles y un carrusel de imágenes */}
-                <div className="mt-16">
-                    <h2 className="text-2xl font-semibold text-white text-center">Más Imágenes</h2>
-                    <div className="grid grid-cols-2 gap-4 mt-4">
-                        {work.images.slice(1).map((image, index) => (
-                            <img
-                                key={index}
-                                src={image}
-                                alt={`Imagen adicional de ${work.title}`}
-                                className="rounded-lg shadow-md h-48 object-cover" // Tamaño y estilo para las imágenes adicionales
-                            />
-                        ))}
+
+                {/* Carrusel de imágenes adicionales */}
+                <div className="flex flex-col items-center mt-16"> {/* Centering the entire content */}
+                    <h2 className="text-2xl font-semibold text-white text-center">More images</h2>
+                    <div className="flex justify-center overflow-x-auto mt-4"> {/* Flex container for horizontal layout */}
+                        <div className="flex space-x-10"> {/* Horizontal spacing between images */}
+                            {work.images.slice(1).map((image, index) => (
+                                <img
+                                    key={index}
+                                    src={image}
+                                    alt={`Imagen adicional de ${work.title}`}
+                                    className="rounded-lg shadow-md h-48 object-cover" // Size and style for additional images
+                                />
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>

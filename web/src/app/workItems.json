@@ -13,8 +13,11 @@
         ],
         "images": [
             "/images/MAJMOD.png",
+            "https://picsum.photos/500/400",
+            "https://picsum.photos/500/400",
             "https://picsum.photos/500/400"
-        ]
+        ],
+        "linkThingiverse": "https://www.thingiverse.com/thing:123456"
     },
     {
         "id": 2,
@@ -30,7 +33,8 @@
         "images": [
             "https://picsum.photos/450/350",
             "https://picsum.photos/550/450"
-        ]
+        ],
+        "linkThingiverse": "https://www.thingiverse.com/thing:123457"
     },
     {
         "id": 3,
@@ -46,7 +50,8 @@
         "images": [
             "https://picsum.photos/420/320",
             "https://picsum.photos/520/420"
-        ]
+        ],
+        "linkThingiverse": "https://www.thingiverse.com/thing:123458"
     },
     {
         "id": 4,
@@ -62,7 +67,8 @@
         "images": [
             "https://picsum.photos/460/360",
             "https://picsum.photos/560/460"
-        ]
+        ],
+        "linkThingiverse": "https://www.thingiverse.com/thing:123459"
     },
     {
         "id": 5,
@@ -78,7 +84,8 @@
         "images": [
             "https://picsum.photos/470/370",
             "https://picsum.photos/570/470"
-        ]
+        ],
+        "linkThingiverse": "https://www.thingiverse.com/thing:123460"
     },
     {
         "id": 6,
@@ -94,6 +101,7 @@
         "images": [
             "https://picsum.photos/480/380",
             "https://picsum.photos/580/480"
-        ]
+        ],
+        "linkThingiverse": "https://www.thingiverse.com/thing:123461"
     }
 ]
