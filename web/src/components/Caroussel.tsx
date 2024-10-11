@@ -17,40 +17,44 @@ interface CarouselProps {
     items: any[];  // Lista de datos para los componentes
     Component: React.ComponentType<any>; // Componente pasado como prop
 }
-
-
 const PreviousArrow: React.FC<ArrowProps> = ({ className, style, onClick }) => {
-
     return (
         <div
-            className={`${className}  flex items-center justify-center w-12 h-12 rounded-full z-10 cursor-pointer text-3xl`} // Clases de Tailwind
+            className={`${className}  flex items-center justify-center w-16 h-16 rounded-full z-10 cursor-pointer text-3xl`} // Tamaño y estilo más grande
             style={{
                 ...style,
                 display: "block",
-                left: "450px",
-                transform: "scale(2)", // Escala a 1.5 veces el tamaño original
-                // Ajusta la posición a la izquierda (ajusta según sea necesario)
+                position: "absolute",
+                bottom: "20px",  // Posicionada en la parte inferior
+                left: "10px",    // Cercana al borde izquierdo
+                transform: "scale(1.8)",  // Hacemos las flechas más grandes
+                zIndex: 2,
+                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.4)",  // Añadimos una sombra más visible
             }}
             onClick={onClick}
         >
-
+            &#10094; {/* Flecha izquierda */}
         </div>
     );
 };
 
 const NextArrow: React.FC<ArrowProps> = ({ className, style, onClick }) => {
-
     return (
         <div
-            className={`${className} p-2 z-10 cursor-pointer w-3`} // Clases de Tailwind
+            className={`${className}  flex items-center justify-center w-16 h-16 rounded-full z-10 cursor-pointer text-3xl`} // Tamaño y estilo más grande
             style={{
                 ...style,
                 display: "block",
-                right: "450px", transform: "scale(2) ", // Ajusta la posición a la derecha (ajusta según sea necesario)
+                position: "absolute",
+                bottom: "20px",  // Posicionada en la parte inferior
+                right: "10px",   // Cercana al borde derecho
+                transform: "scale(1.8)",  // Hacemos las flechas más grandes
+                zIndex: 2,
+                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.4)",  // Añadimos una sombra más visible
             }}
             onClick={onClick}
         >
-            &#10095; {/* Símbolo de flecha hacia la derecha */}
+            &#10095; {/* Flecha derecha */}
         </div>
     );
 };
@@ -80,7 +84,7 @@ const Caroussel: React.FC<CarouselProps> = ({ items, Component }) => {
 
     return (
         <>
-            <h1 className="text-white text-3xl text-center mb-[5vh]">Jobs</h1>
+
             <div className="carousel-container">
                 <Slider {...settings}>
 

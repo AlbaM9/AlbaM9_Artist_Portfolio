@@ -26,15 +26,16 @@ const Home: React.FC<HomeProps> = () => {
 
 
   const itemsForBanners = [
-    {
-      backgroundImage: '/images/logoinaleb.png',
-      title: "All",
-      link: "/jobs?tab=all",
-    },
+
     {
       backgroundImage: '/images/TOTED.png',
       title: "3D Models",
       link: "/jobs?tab=models",  // Añadimos query param
+    },
+    {
+      backgroundImage: '/images/logoinaleb.png',
+      title: "All",
+      link: "/jobs?tab=all",
     },
     {
       backgroundImage: '/images/MAJMOD.png',
@@ -63,7 +64,20 @@ const Home: React.FC<HomeProps> = () => {
       </section>
 
       <section id="gallery" className="py-16">
-        <Caroussel items={itemsForBanners} Component={Banners} />
+        <h1 className="text-white text-3xl text-center mb-[5vh]">Jobs</h1>
+        <div className="flex flex-row justify-center gap-7 mt-20 mb-24">
+          {itemsForBanners.map((item, index) => (
+            <div className="w-[28rem] h-auto aspect-w-16 aspect-h-9  transition-transform duration-300 hover:scale-125">
+              <Banners
+                key={index}  // Asigna un key único, en este caso el index del array
+                backgroundImage={item.backgroundImage}
+                title={item.title}
+                link={item.link}
+
+              />
+            </div>
+          ))}
+        </div>
       </section>
 
       <section id="contact" className="py-16">

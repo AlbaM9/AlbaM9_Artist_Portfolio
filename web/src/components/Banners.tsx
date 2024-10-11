@@ -15,21 +15,28 @@ interface BannersProps {
 const Banners: React.FC<BannersProps> = ({ backgroundImage, title, link, }) => {
     return (
         <section className="flex justify-center items-center">
-            <div
-                className="w-[43vw] aspect-square bg-cover bg-top bg-no-repeat rounded-full flex flex-col justify-center items-center"
-                style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', }}
-            >
-                <Link
-                    href={link} // Cambia 'to' por 'href' y utiliza el nombre de la ruta en minúsculas.
-
+            <Link href={link} className="group w-[43vw] aspect-square relative flex flex-col">
+                <div
+                    className="w-full h-full bg-cover bg-center bg-no-repeat rounded-full relative transition-transform duration-300 ease-in-out"
+                    style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover' }}
                 >
-                    <h1 className="text-2xl md:text-3xl text-white border-2 border-white px-4 py-2 rounded-lg cursor-pointer transition-transform duration-300 ease-in-out hover:bg-white hover:text-black hover:border-black hover:opacity-80 transform hover:scale-110">
-                        {title}
-                    </h1>
+                    {/* Efecto de filtro BYN */}
+                    <div className="absolute inset-0 w-full h-full rounded-full bg-black bg-opacity-30 transition-all duration-300 ease-in-out filter group-hover:filter-none group-hover:bg-opacity-0"></div>
 
-                </Link>
+                    {/* Imagen en blanco y negro con hover para mostrar color */}
+                    <div
+                        className="absolute inset-0 bg-cover bg-center bg-no-repeat rounded-full transition-all duration-300 ease-in-out filter grayscale group-hover:grayscale-0"
+                        style={{ backgroundImage: `url(${backgroundImage})` }}
+                    ></div>
 
-            </div>
+                    {/* Contenedor para el título */}
+                    <div className="absolute top-2 left-0 right-0 p-4 flex justify-center">
+                        <h1 className="relative z-10 text-2xl md:text-3xl text-white ">
+                            {title}
+                        </h1>
+                    </div>
+                </div>
+            </Link>
         </section>
     );
 }
