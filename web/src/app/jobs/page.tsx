@@ -95,7 +95,7 @@ const JobsPage: React.FC = () => {
                     />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-28 p-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10 p-10">
                     {filteredWorks.length > 0 ? (
                         filteredWorks.map((work) => (
                             <div key={work.id} className="rounded-lg p-4 shadow-lg flex flex-col justify-center items-center text-center">

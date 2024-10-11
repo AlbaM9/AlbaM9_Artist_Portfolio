@@ -14,8 +14,8 @@
         "images": [
             "/images/MAJMOD.png",
             "https://picsum.photos/500/400",
-            "https://picsum.photos/500/400",
-            "https://picsum.photos/500/400"
+            "https://picsum.photos/550/450",
+            "https://picsum.photos/520/420"
         ],
         "linkThingiverse": "https://www.thingiverse.com/thing:123456",
         "quotes": {
@@ -25,9 +25,9 @@
     },
     {
         "id": 2,
-        "title": "Print 2",
-        "description": "Descripción de 2D Print 2. Póster artístico para eventos.",
-        "detail": "Un póster diseñado específicamente para eventos artísticos, ideal para capturar la atención y transmitir un mensaje visual poderoso.",
+        "title": "Aku Aku & Uka Uka",
+        "description": "Crash Bandicoot Saga",
+        "detail": "Las máscaras Aku Aku y Uka Uka son dos fuerzas opuestas en el mundo de Crash Bandicoot: Aku Aku, la sabia y benevolente máscara protectora, guía a los héroes en sus aventuras, mientras que Uka Uka, su oscuro y malévolo hermano, desata el caos y la destrucción. Juntas, simbolizan la eterna lucha entre el bien y el mal en un vibrante universo lleno de desafíos.",
         "category": "2d-print",
         "tags": [
             "poster",
@@ -35,13 +35,15 @@
             "event"
         ],
         "images": [
-            "https://picsum.photos/450/350",
-            "https://picsum.photos/550/450"
+            "/images/akuUka.jpg",
+            "https://picsum.photos/500/400",
+            "https://picsum.photos/550/450",
+            "https://picsum.photos/520/420"
         ],
         "linkThingiverse": "https://www.thingiverse.com/thing:123457",
         "quotes": {
-            "quote": "The one who has the power to change the fate of this world... is you. Tonight, a terrible fate awaits you.",
-            "author": "Skull Kid"
+            "quote": "Crash, Crash, Crash. Why must you always muck in my mud? Oh, look! I have a mask to help me too! We'll see which one is more powerful soon!",
+            "author": "Dr. Neo Cortex"
         }
     },
     {

@@ -61,3 +61,29 @@
     /* Aplica Roboto a todos los elementos */
 
 }
+
+/* Estilos con Tailwind CSS para los dots */
+.slick-dots {
+    @apply absolute bottom-0 left-0 right-0 flex justify-center mb-4 space-x-2 z-10;
+    /* Posicionar los dots en la parte inferior de la imagen */
+}
+
+.slick-dots li button {
+    @apply h-4 w-4 bg-gray-300 rounded-full transition-all duration-300;
+    /* Todos los dots serán visibles, tamaño definido */
+}
+
+.slick-dots li button:before {
+    content: none !important;
+    /* Eliminar cualquier punto central no deseado */
+}
+
+.slick-dots li button:not(.slick-active) {
+    @apply bg-gray-500;
+    /* Asegura que los dots no activos sean visibles con fondo gris */
+}
+
+.slick-dots li.slick-active button {
+    @apply bg-white scale-125;
+    /* Dot activo será blanco y un poco más grande */
+}

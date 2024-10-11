@@ -64,10 +64,10 @@ const Home: React.FC<HomeProps> = () => {
       </section>
 
       <section id="gallery" className="py-16">
-        <h1 className="text-white text-3xl text-center mb-[5vh]">Jobs</h1>
-        <div className="flex flex-row justify-center gap-7 mt-20 mb-24">
+        <h1 className="text-white text-3xl text-center mb-[20vh]">Jobs</h1>
+        <div className="flex flex-row justify-center gap-10 mt-20 mb-24">
           {itemsForBanners.map((item, index) => (
-            <div className="w-[28rem] h-auto aspect-w-16 aspect-h-9  transition-transform duration-300 hover:scale-125">
+            <div className="w-[28rem] h-auto aspect-w-16 aspect-h-9  transition-transform duration-300 hover:scale-105">
               <Banners
                 key={index}  // Asigna un key único, en este caso el index del array
                 backgroundImage={item.backgroundImage}
