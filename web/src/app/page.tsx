@@ -26,17 +26,17 @@ const Home: React.FC<HomeProps> = () => {
 
 
   const itemsForBanners = [
-
-    {
-      backgroundImage: '/images/TOTED.png',
-      title: "3D Models",
-      link: "/jobs?tab=models",  // Añadimos query param
-    },
     {
       backgroundImage: '/images/logoinaleb.png',
       title: "All",
       link: "/jobs?tab=all",
     },
+    {
+      backgroundImage: '/images/TOTED.png',
+      title: "3D Models",
+      link: "/jobs?tab=models",  // Añadimos query param
+    },
+
     {
       backgroundImage: '/images/MAJMOD.png',
       title: "3D Prints",
@@ -64,19 +64,33 @@ const Home: React.FC<HomeProps> = () => {
       </section>
 
       <section id="gallery" className="py-16">
-        <h1 className="text-white text-3xl text-center mb-[20vh]">Jobs</h1>
-        <div className="flex flex-row justify-center gap-10 mt-20 mb-24">
-          {itemsForBanners.map((item, index) => (
-            <div className="w-[28rem] h-auto aspect-w-16 aspect-h-9  transition-transform duration-300 hover:scale-105">
-              <Banners
-                key={index}  // Asigna un key único, en este caso el index del array
-                backgroundImage={item.backgroundImage}
-                title={item.title}
-                link={item.link}
+        <h1 className="text-white text-3xl text-center ">Jobs</h1>
+        <div className="flex flex-col items-center mt-4 p-10">
+          {/* Elemento Superior */}
+          <div className="w-[24rem] h-auto aspect-w-16 aspect-h-9 transition-transform duration-300 hover:scale-105 mb-4">
+            <Banners
 
-              />
-            </div>
-          ))}
+              backgroundImage={itemsForBanners[0].backgroundImage}
+              title={itemsForBanners[0].title}
+              link={itemsForBanners[0].link}
+            />
+          </div>
+
+          {/* Elementos Inferiores */}
+          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-18">
+            {itemsForBanners.slice(1, 3).map((item, index) => (
+              <div
+
+                className="w-[24rem] h-auto aspect-w-16 aspect-h-9 transition-transform duration-300 hover:scale-105"
+              >
+                <Banners
+                  backgroundImage={item.backgroundImage}
+                  title={item.title}
+                  link={item.link}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

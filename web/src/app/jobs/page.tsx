@@ -91,7 +91,7 @@ const JobsPage: React.FC = () => {
                         placeholder="Looking for something?"
                         value={searchText}
                         onChange={(e) => setSearchText(e.target.value)}
-                        className="p-2 mb-4 md:mb-0 mr-4 rounded bg-white bg-opacity-40 text-white placeholder:text-gray-400 flex-grow border border-transparent focus:border-blue-400 focus:ring-2 focus:ring-blue-400 transition duration-200 h-12"
+                        className="p-2 mb-4 mt-4 md:mt-0 md:mb-0 mr-4 rounded bg-white bg-opacity-40 text-white placeholder:text-gray-400 flex-grow border border-transparent focus:border-blue-400 focus:ring-2 focus:ring-blue-400 transition duration-200 h-12"
                     />
                 </div>
 

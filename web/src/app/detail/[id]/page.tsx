@@ -41,39 +41,39 @@ const Detail = () => {
     const [currentImage, setCurrentImage] = useState<string | null>(null); // Estado para la imagen actual
     const carouselRef = useRef<any>(null); // Crear referencia para el carrusel
 
-    // Cargar los datos del trabajo
+
     useEffect(() => {
         if (id) {
-            const workId = Number(id); // Convertimos id a número
+            const workId = Number(id);
             const foundWork = workItems.find((item: Work) => item.id === workId);
-            setWork(foundWork || null); // Manejo de caso en que no se encuentra el trabajo
+            setWork(foundWork || null);
             if (foundWork && foundWork.images.length > 0) {
-                setCurrentImage(foundWork.images[0]); // Establecer la primera imagen por defecto
+                setCurrentImage(foundWork.images[0]);
             }
         }
     }, [id]);
 
-    // Manejar clic en la imagen del carrusel
+
     const handleImageClick = (image: string) => {
-        setCurrentImage(image); // Establecer la imagen actual
-        setShowModal(true); // Mostrar el modal
+        setCurrentImage(image);
+        setShowModal(true);
     };
 
-    // Manejar clic en las miniaturas
+
     const handleImageSelect = (image: string) => {
-        setCurrentImage(image); // Cambiar la imagen actual
+        setCurrentImage(image);
         if (carouselRef.current) {
-            const index = work?.images.indexOf(image) || 0; // Obtener el índice de la imagen seleccionada
-            carouselRef.current.slickGoTo(index); // Cambia al slide correspondiente
+            const index = work?.images.indexOf(image) || 0;
+            carouselRef.current.slickGoTo(index);
         }
     };
 
-    // Cerrar el modal
+
     const closeModal = () => {
-        setShowModal(false); // Ocultar el modal
+        setShowModal(false);
     };
 
-    // Definición del menú
+
     const menuItems = [
         <Link key="home" href="/">Home</Link>,
         <Link key="contact" href="/contact">Contact</Link>,
@@ -81,7 +81,7 @@ const Detail = () => {
     ];
 
     if (!work) {
-        return <div>Trabajo no encontrado</div>; // Manejo de error simple
+        return <div>Trabajo no encontrado</div>;
     }
 
     return (
@@ -90,12 +90,12 @@ const Detail = () => {
         }}>
             <Header menuItems={menuItems} />
             <div className='p-16'>
-                <div className="flex-grow p-5 mt-6 justify-center"> {/* Flex-grow para ocupar el espacio restante */}
+                <div className="flex-grow p-5 mt-6 justify-center">
                     <h1 className="text-4xl font-bold text-white text-center mb-4">{work.title}</h1>
                     <p className="mt-2 text-lg text-white text-center">{work.description}</p>
                 </div>
 
-                <div className='flex flex-row mt-16 mb-18'> {/* Flex-row con gap entre elementos */}
+                <div className='flex flex-row mt-6 mb-18'>
                     {/* Imagen */}
                     {work.images && work.images.length > 0 && (
                         <div className="w-[50vw] h-auto cursor-pointer">
@@ -103,29 +103,29 @@ const Detail = () => {
 
                                 items={work.images.map((image) => ({
                                     image,
-                                    onClick: () => handleImageClick(image), // Cambiar la imagen actual al hacer clic
+                                    onClick: () => handleImageClick(image),
                                 }))}
-                                showArrows={false}  // Mostrar flechas
-                                showDots={true}    // Mostrar dots
+                                showArrows={false}
+                                showDots={true}
                                 Component={ImageComponent}
-                                currentIndex={work.images.indexOf(currentImage || '')} // Índice de la imagen actual
+                                currentIndex={work.images.indexOf(currentImage || '')}
                             />
                         </div>
                     )}
 
                     {/* Detalles del trabajo */}
-                    <div className="p-10 text-white flex-grow pl-8"> {/* Ajuste del padding */}
+                    <div className="p-10 text-white flex-grow pl-8">
                         <p className="text-lg mt-10">{work.detail}</p>
                         <p className="text-lg mt-18 italic text-center font-extralight pr-18 pl-18 pb-6">
-                            &quot;{work.quotes.quote}&quot; {/* Texto de la cita con comillas */}
+                            &quot;{work.quotes.quote}&quot;
                         </p>
-                        <div className="flex justify-end pr-18"> {/* Añade un contenedor flex para alinear a la derecha */}
+                        <div className="flex justify-end pr-18">
                             <span className="text-lg italic font-extralight ">
-                                - {work.quotes.author} {/* Nombre del autor */}
+                                - {work.quotes.author}
                             </span>
                         </div>
 
-                        <div className='flex flex-row justify-start gap-20 mt-18'>
+                        <div className='flex flex-row justify-start  gap-20 mt-18'>
                             {work.linkThingiverse && (
                                 <div className='flex flex-col items-center'>
                                     <p className="text-lg mt-10">Get model?</p>
@@ -161,7 +161,7 @@ const Detail = () => {
                                 className="absolute top-4 right-4 text-white text-4xl z-50 cursor-pointer"
                                 onClick={closeModal}
                             >
-                                &#10005; {/* Icono de cierre */}
+                                &#10005;
                             </button>
                             <ImageComponent image={currentImage!} onClick={() => { }} isModal={true} /> {/* Mostrar la imagen actual */}
                         </div>
@@ -175,7 +175,7 @@ const Detail = () => {
                                             key={index}
                                             src={image}
                                             alt={`Imagen adicional de ${work.title}`}
-                                            className={`rounded-lg shadow-md h-32 object-cover cursor-pointer ${currentImage === image ? 'border-2 border-blue-500' : ''}`} // Resaltar la imagen seleccionada
+                                            className={`rounded-lg shadow-md h-32 object-cover cursor-pointer ${currentImage === image ? 'border-2 border-blue-500' : ''}`}
                                             onClick={() => handleImageSelect(image)} // Maneja el clic en la miniatura
                                         />
                                     ))}
