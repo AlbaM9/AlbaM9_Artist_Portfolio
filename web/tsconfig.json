@@ -12,7 +12,6 @@
       "dom.iterable",
       "esnext"
     ],
-    "allowJs": true,
     "noEmit": true,
     "incremental": true,
     "moduleResolution": "node",
@@ -22,11 +21,13 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "allowJs": true
   },
   "include": [
     "src/**/*",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "src/server.ts" // Asegúrate de incluir el archivo del servidor si está en la raíz
   ], // Asegúrate de que este directorio esté incluido
   "exclude": [
     "node_modules",

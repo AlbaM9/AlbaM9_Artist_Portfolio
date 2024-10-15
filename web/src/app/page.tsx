@@ -40,7 +40,7 @@ const Home: React.FC<HomeProps> = () => {
     {
       backgroundImage: '/images/MAJMOD.png',
       title: "3D Prints",
-      link: "/jobs?tab=2d-print",  // Añadimos query param
+      link: "/jobs?tab=3d-print",  // Añadimos query param
     }
   ];
   const menuItems = [

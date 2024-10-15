@@ -5,15 +5,18 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "NODE_ENV=production ts-node server.ts",
+    "lint": "next lint",
+    "dev:server": "ts-node src/server.ts"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-brands-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@tailwindcss/typography": "^0.5.15",
+    "dotenv": "^16.4.5",
     "emailjs-com": "^3.2.0",
+    "mysql2": "^3.11.3",
     "next": "^14.2.14",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -24,6 +27,7 @@
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
+    "@types/express": "^5.0.0",
     "@types/node": "^22.7.3",
     "@types/react": "^18.3.9",
     "@types/react-scroll": "^1.8.10",
@@ -33,6 +37,7 @@
     "eslint-config-next": "14.2.7",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.12",
+    "ts-node": "^10.9.2",
     "typescript": "^5.6.2"
   }
 }
