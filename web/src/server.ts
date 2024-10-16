@@ -8,6 +8,8 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
+
+
 async function createDBConnection() {
     return mysql.createConnection({
         host: process.env.DB_HOST,
@@ -42,7 +44,7 @@ app.prepare().then(() => {
         try {
             connection = await createDBConnection();
             const [rows]: [mysql.RowDataPacket[], any] = await connection.query(`
-                SELECT 
+             SELECT 
                     i.id,
                     i.title,
                     i.description,
@@ -51,7 +53,8 @@ app.prepare().then(() => {
                     i.linkThingiverse,
                     GROUP_CONCAT(DISTINCT q.quote) AS quotes,
                     GROUP_CONCAT(DISTINCT q.author) AS authors,
-                    GROUP_CONCAT(DISTINCT img.image_url) AS images,
+                    GROUP_CONCAT(DISTINCT img.image_url ORDER BY img.id) AS images,  -- Ordenar por id aquí
+                    GROUP_CONCAT(DISTINCT img.id ORDER BY img.id) AS image_ids,       -- Asegurar el mismo orden
                     GROUP_CONCAT(DISTINCT t.tag) AS tags
                 FROM 
                     Items i
@@ -78,7 +81,10 @@ app.prepare().then(() => {
                 linkThingiverse: row.linkThingiverse,
                 quotes: row.quotes ? row.quotes.split(',') : [],
                 authors: row.authors ? row.authors.split(',') : [],
-                images: row.images ? row.images.split(',') : [],
+                images: row.images && rows[0].image_ids ? row.images.split(',').map((url: string, index: number) => ({
+                    id: row.image_ids.split(',')[index], // Obtiene el ID correspondiente de image_ids
+                    url: url.trim() // Agrega la URL de la imagen
+                })) : [], // Si no hay imágenes, devuelve un array vacío
                 tags: row.tags ? row.tags.split(',') : []
             }));
 
@@ -111,16 +117,17 @@ app.prepare().then(() => {
         try {
             connection = await createDBConnection();
             const [rows]: [mysql.RowDataPacket[], any] = await connection.query(`
-                SELECT 
+              SELECT 
                     i.id,
                     i.title,
                     i.description,
                     i.detail,
                     i.category,
                     i.linkThingiverse,
-                    GROUP_CONCAT(DISTINCT q.quote) AS quote,
-                    GROUP_CONCAT(DISTINCT q.author) AS author,
-                    GROUP_CONCAT(DISTINCT img.image_url) AS images,
+                    GROUP_CONCAT(DISTINCT q.quote) AS quotes,
+                    GROUP_CONCAT(DISTINCT q.author) AS authors,
+                    GROUP_CONCAT(DISTINCT img.image_url ORDER BY img.id) AS images,  -- Ordenar por id aquí
+                    GROUP_CONCAT(DISTINCT img.id ORDER BY img.id) AS image_ids,       -- Asegurar el mismo orden
                     GROUP_CONCAT(DISTINCT t.tag) AS tags
                 FROM 
                     Items i
@@ -132,9 +139,9 @@ app.prepare().then(() => {
                     Item_Tags it ON i.id = it.item_id
                 LEFT JOIN 
                     Tags t ON it.tag_id = t.id
-                WHERE 
-                    i.id = ?  -- Use WHERE clause to filter by ID
                 GROUP BY 
+                    i.id
+                ORDER BY 
                     i.id;
             `, [id]);
 
@@ -153,7 +160,10 @@ app.prepare().then(() => {
                 linkThingiverse: rows[0].linkThingiverse,
                 quote: rows[0].quote || '',
                 author: rows[0].author || '',
-                images: rows[0].images ? rows[0].images.split(',') : [],
+                images: rows[0].images && rows[0].image_ids ? rows[0].images.split(',').map((url: string, index: number) => ({
+                    id: rows[0].image_ids.split(',')[index], // Obtiene el ID correspondiente de image_ids
+                    url: url.trim() // Agrega la URL de la imagen
+                })) : [], // Si no hay imágenes, devuelve un array vacío
                 tags: rows[0].tags ? rows[0].tags.split(',') : []
             };
 

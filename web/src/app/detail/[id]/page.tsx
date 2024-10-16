@@ -7,20 +7,16 @@ import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
 import Caroussel from '../../../components/Caroussel';
 
-
 interface Work {
     id: number;
     title: string;
     description: string;
-    images: string[];
     detail: string;
     linkThingiverse: string;
     quote: string;
     author: string;
-
-
+    images: { url: string; id: number }[]; // El array de imágenes contiene objetos con url e id.
 }
-
 
 const ImageComponent = ({ image, onClick, isModal = false }: { image: string; onClick: () => void; isModal?: boolean }) => (
     <div className="flex justify-center cursor-pointer" onClick={onClick}>
@@ -53,9 +49,13 @@ const Detail = () => {
                 }
 
                 const data: Work = await response.json();
-                setDetailWork(data);
-                if (data && data.images.length > 0) {
-                    setCurrentImage(data.images[0]);
+
+                // Ordenar las imágenes por `id`
+                const sortedImages = data.images.sort((a, b) => a.id - b.id);
+
+                setDetailWork({ ...data, images: sortedImages });
+                if (sortedImages.length > 0) {
+                    setCurrentImage(sortedImages[0].url); // Usar la url de la primera imagen después de ordenar
                 }
             } catch (error) {
                 setError('Error al cargar el trabajo. Por favor, inténtalo de nuevo más tarde.');
@@ -78,7 +78,7 @@ const Detail = () => {
     const handleImageSelect = (image: string) => {
         setCurrentImage(image);
         if (carouselRef.current) {
-            const index = DetailWork?.images.indexOf(image) || 0;
+            const index = DetailWork?.images.findIndex((img) => img.url === image) || 0; // Actualizado para usar url
             carouselRef.current.slickGoTo(index);
         }
     };
@@ -104,7 +104,6 @@ const Detail = () => {
     if (!DetailWork) {
         return <div className="text-white text-center">Trabajo no encontrado</div>;
     }
-
     console.log(DetailWork)
 
     return (
@@ -123,13 +122,13 @@ const Detail = () => {
                         <div className="w-[50vw] h-auto cursor-pointer">
                             <Caroussel
                                 items={DetailWork.images.map((image) => ({
-                                    image,
-                                    onClick: () => handleImageClick(image),
+                                    image: image.url, // Acceder a la url de la imagen
+                                    onClick: () => handleImageClick(image.url),
                                 }))}
                                 showArrows={false}
                                 showDots={true}
                                 Component={ImageComponent}
-                                currentIndex={DetailWork.images.indexOf(currentImage || '')}
+                                currentIndex={DetailWork.images.findIndex((img) => img.url === currentImage) || 0} // Comparar por url
                             />
                         </div>
                     )}
@@ -191,10 +190,10 @@ const Detail = () => {
                                     {DetailWork.images.map((image, index) => (
                                         <img
                                             key={index}
-                                            src={image}
+                                            src={image.url} // Mostrar la url de la imagen
                                             alt={`Imagen adicional de ${DetailWork.title}`}
-                                            className={`rounded-lg shadow-md h-32 object-cover cursor-pointer ${currentImage === image ? 'border-2 border-blue-500' : ''}`}
-                                            onClick={() => handleImageSelect(image)}
+                                            className={`rounded-lg shadow-md h-32 object-cover cursor-pointer ${currentImage === image.url ? 'border-2 border-blue-500' : ''}`}
+                                            onClick={() => handleImageSelect(image.url)} // Usar la url para la selección
                                         />
                                     ))}
                                 </div>

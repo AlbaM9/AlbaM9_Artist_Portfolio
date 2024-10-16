@@ -12,9 +12,8 @@ interface Work {
     description: string;
     category: string;
     tags: string[];
-    images: string[];
+    images: { url: string, id: number }[]; // Ahora el tipo es un array de objetos con URL e ID.
 }
-
 
 const JobsPage: React.FC = () => {
     const router = useRouter();
@@ -24,20 +23,32 @@ const JobsPage: React.FC = () => {
     const [works, setWorks] = useState<Work[]>([]);
     const [loading, setLoading] = useState(true);
 
-
     useEffect(() => {
         const tab = searchParams.get('tab');
         setActiveTab(tab === 'models' || tab === '3d-print' || tab === 'all' ? tab as '3d-print' | 'models' | 'all' : 'all');
     }, [searchParams]);
-
 
     useEffect(() => {
         const fetchWorks = async () => {
             setLoading(true);
             try {
                 const response = await fetch('http://localhost:3000/api/items');
-                const data: Work[] = await response.json();
-                setWorks(data);
+                const data = await response.json();
+                console.log('Datos de la API:', data);
+
+
+                const formattedData = data.map((work: any) => {
+                    return {
+                        ...work,
+
+                        images: work.images || [],
+                    };
+                });
+
+                console.log(formattedData)
+
+                setWorks(formattedData);
+
             } catch (error) {
                 console.error('Error al cargar trabajos:', error);
             } finally {
@@ -47,6 +58,8 @@ const JobsPage: React.FC = () => {
 
         fetchWorks();
     }, []);
+
+    console.log(works)
 
 
     const handleTabClick = (tab: '3d-print' | 'models' | 'all') => {
@@ -58,7 +71,6 @@ const JobsPage: React.FC = () => {
         <Link key="home" href="/">Home</Link>,
         <Link key="contact" href="/contact">Contact</Link>,
     ];
-
 
     const filteredWorks = works.filter((work: Work) => {
         const matchesCategory = activeTab === 'all' || work.category === activeTab;
@@ -124,9 +136,8 @@ const JobsPage: React.FC = () => {
                             <div key={work.id} className="rounded-lg p-4 shadow-lg flex flex-col justify-center items-center text-center">
                                 <h3 className="font-bold text-xl mb-2">{work.title}</h3>
                                 <p>{work.description}</p>
-
                                 <img
-                                    src={Array.isArray(work.images) && work.images.length > 0 ? work.images[0] : '/default-image.jpg'}
+                                    src={work.images.length > 0 ? work.images[0].url : '/default-image.jpg'} // Mostrar la primera imagen, ordenada por ID
                                     className="w-full h-auto object-cover mt-10 rounded-full aspect-square hover:scale-110 transform transition duration-300 cursor-pointer"
                                     alt={`Imagen de ${work.title}`}
                                     onClick={() => handleImageClick(work.id)}
@@ -144,7 +155,6 @@ const JobsPage: React.FC = () => {
             <Footer />
         </div>
     );
-
 };
 
 export default JobsPage;
