@@ -79,8 +79,8 @@ app.prepare().then(() => {
                 detail: row.detail,
                 category: row.category,
                 linkThingiverse: row.linkThingiverse,
-                quotes: row.quotes ? row.quotes.split(',') : [],
-                authors: row.authors ? row.authors.split(',') : [],
+                quotes: row.quotes || '',
+                authors: row.authors || '',
                 images: row.images && rows[0].image_ids ? row.images.split(',').map((url: string, index: number) => ({
                     id: row.image_ids.split(',')[index], // Obtiene el ID correspondiente de image_ids
                     url: url.trim() // Agrega la URL de la imagen
@@ -139,6 +139,8 @@ app.prepare().then(() => {
                     Item_Tags it ON i.id = it.item_id
                 LEFT JOIN 
                     Tags t ON it.tag_id = t.id
+                     WHERE 
+                i.id = ?  -- Asegúrate de filtrar por el ID
                 GROUP BY 
                     i.id
                 ORDER BY 
@@ -158,12 +160,12 @@ app.prepare().then(() => {
                 detail: rows[0].detail,
                 category: rows[0].category,
                 linkThingiverse: rows[0].linkThingiverse,
-                quote: rows[0].quote || '',
-                author: rows[0].author || '',
+                quote: rows[0].quotes || '', // Asegúrate de que estás usando quotes y author correctamente
+                author: rows[0].authors || '',
                 images: rows[0].images && rows[0].image_ids ? rows[0].images.split(',').map((url: string, index: number) => ({
-                    id: rows[0].image_ids.split(',')[index], // Obtiene el ID correspondiente de image_ids
-                    url: url.trim() // Agrega la URL de la imagen
-                })) : [], // Si no hay imágenes, devuelve un array vacío
+                    id: rows[0].image_ids.split(',')[index], // Esto debe ser el mismo índice
+                    url: url.trim()
+                })) : [],
                 tags: rows[0].tags ? rows[0].tags.split(',') : []
             };
 

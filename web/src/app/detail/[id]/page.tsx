@@ -42,13 +42,17 @@ const Detail = () => {
             setLoading(true);
             setError(null); // Resetear el estado de error antes de la solicitud
             try {
-                const response = await fetch(`http://localhost:3000/api/detail/${id}`); // Cambia la URL según sea necesario
+                const response = await fetch(`http://localhost:3000/api/detail/${id}`); // Verificar que id esté actualizado
+                console.log(`Fetching work with ID: ${id}`); // Para verificar el ID que se está usando
 
                 if (!response.ok) {
                     throw new Error(`Error en la solicitud: ${response.status}`);
                 }
 
                 const data: Work = await response.json();
+
+                // Asegúrate de que data tenga la estructura esperada
+                console.log('Datos recibidos:', data);
 
                 // Ordenar las imágenes por `id`
                 const sortedImages = data.images.sort((a, b) => a.id - b.id);
@@ -67,8 +71,11 @@ const Detail = () => {
 
         if (id) {
             fetchWork();
+        } else {
+            console.warn('ID no está definido'); // Para verificar si id es null o undefined
         }
     }, [id]);
+
 
     const handleImageClick = (image: string) => {
         setCurrentImage(image);
