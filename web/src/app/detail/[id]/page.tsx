@@ -18,7 +18,9 @@ interface Work {
     quote: string;
     author: string;
 
+
 }
+
 
 const ImageComponent = ({ image, onClick, isModal = false }: { image: string; onClick: () => void; isModal?: boolean }) => (
     <div className="flex justify-center cursor-pointer" onClick={onClick}>

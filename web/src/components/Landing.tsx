@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-scroll';
 
-//import '../styles/landing.scss'; // Importa los estilos globales
+
 
 const Landing: React.FC<any> = () => {
     return (
@@ -15,10 +15,10 @@ const Landing: React.FC<any> = () => {
                     backgroundSize: "contain",
                     backgroundPosition: "center",
 
-                    filter: "blur(1.2px)", // Desenfoque general en la imagen
+                    filter: "blur(1.2px)",
                 }}
             >
-                {/*<img src="/images/black_mark.png" className=" items-center justify-center"></img>*/}
+
             </div>
 
 

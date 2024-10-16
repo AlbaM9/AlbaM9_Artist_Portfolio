@@ -1,8 +1,8 @@
 import React from 'react';
 
-// Define las props, aquí puedes añadir propiedades si es necesario
+
 interface Props {
-    any?: any; // Define el tipo de las props que vas a usar
+    any?: any;
 }
 
 const AboutMe: React.FC<Props> = () => {

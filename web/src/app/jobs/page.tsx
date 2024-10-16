@@ -12,42 +12,43 @@ interface Work {
     description: string;
     category: string;
     tags: string[];
-    images: string[]; // Asegúrate de que esta propiedad siempre sea un array
+    images: string[];
 }
+
 
 const JobsPage: React.FC = () => {
     const router = useRouter();
     const searchParams = useSearchParams();
     const [activeTab, setActiveTab] = useState<'3d-print' | 'models' | 'all'>('all');
     const [searchText, setSearchText] = useState('');
-    const [works, setWorks] = useState<Work[]>([]); // Estado para almacenar los trabajos
-    const [loading, setLoading] = useState(true); // Estado de carga
+    const [works, setWorks] = useState<Work[]>([]);
+    const [loading, setLoading] = useState(true);
 
-    // Efecto para obtener la pestaña activa
+
     useEffect(() => {
         const tab = searchParams.get('tab');
         setActiveTab(tab === 'models' || tab === '3d-print' || tab === 'all' ? tab as '3d-print' | 'models' | 'all' : 'all');
     }, [searchParams]);
 
-    // Efecto para cargar los trabajos desde la API
+
     useEffect(() => {
         const fetchWorks = async () => {
-            setLoading(true); // Activar el estado de carga
+            setLoading(true);
             try {
-                const response = await fetch('http://localhost:3000/api/items'); // Cambia la URL según sea necesario
+                const response = await fetch('http://localhost:3000/api/items');
                 const data: Work[] = await response.json();
-                setWorks(data); // Almacenar los trabajos en el estado
+                setWorks(data);
             } catch (error) {
                 console.error('Error al cargar trabajos:', error);
             } finally {
-                setLoading(false); // Desactivar el estado de carga
+                setLoading(false);
             }
         };
 
-        fetchWorks(); // Llamar a la función para obtener los trabajos
+        fetchWorks();
     }, []);
 
-    // Cambia la ruta y el estado activo de la pestaña
+
     const handleTabClick = (tab: '3d-print' | 'models' | 'all') => {
         setActiveTab(tab);
         router.push(`/jobs?tab=${tab}`);
@@ -64,13 +65,13 @@ const JobsPage: React.FC = () => {
         const matchesSearch =
             work.title.toLowerCase().includes(searchText.toLowerCase()) ||
             work.description.toLowerCase().includes(searchText.toLowerCase()) ||
-            work.tags.some(tag => tag.toLowerCase().includes(searchText.toLowerCase())); // Filtrado por tags
+            work.tags.some(tag => tag.toLowerCase().includes(searchText.toLowerCase()));
 
         return matchesCategory && matchesSearch;
     });
 
     const handleImageClick = (workId: number) => {
-        router.push(`/detail/${workId}`); // Redirige a la página de detalle con el ID del trabajo
+        router.push(`/detail/${workId}`);
     };
 
     return (
@@ -79,7 +80,7 @@ const JobsPage: React.FC = () => {
         }}>
             <Header menuItems={menuItems} />
             <div className="flex flex-col items-center text-white pt-[10vh] bg-transparent">
-                {/* Contenedor para el campo de búsqueda y botones */}
+
                 <div className="flex flex-col md:flex-row items-center justify-center mb-4 w-full max-w-md space-x-20">
                     <div className="flex space-x-5">
                         <button
@@ -114,7 +115,7 @@ const JobsPage: React.FC = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10 p-10">
-                    {loading ? ( // Mostrar un indicador de carga mientras se obtienen los trabajos
+                    {loading ? (
                         <div className="col-span-1 md:col-span-2 lg:col-span-3 flex justify-center items-center text-center text-xl text-white h-[100vh]">
                             Loading...
                         </div>
@@ -125,10 +126,10 @@ const JobsPage: React.FC = () => {
                                 <p>{work.description}</p>
 
                                 <img
-                                    src={Array.isArray(work.images) && work.images.length > 0 ? work.images[0] : '/default-image.jpg'} // Verificar que images sea un array y tenga elementos
+                                    src={Array.isArray(work.images) && work.images.length > 0 ? work.images[0] : '/default-image.jpg'}
                                     className="w-full h-auto object-cover mt-10 rounded-full aspect-square hover:scale-110 transform transition duration-300 cursor-pointer"
                                     alt={`Imagen de ${work.title}`}
-                                    onClick={() => handleImageClick(work.id)} // Pasa el ID del trabajo al hacer clic
+                                    onClick={() => handleImageClick(work.id)}
                                 />
                             </div>
                         ))

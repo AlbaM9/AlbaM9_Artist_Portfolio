@@ -1,4 +1,4 @@
-'use client';  // Esto convierte al componente en un Client Component
+'use client';
 
 import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
@@ -14,12 +14,12 @@ interface ArrowProps {
 }
 
 interface CarouselProps {
-    items: any[];  // Lista de datos para los componentes
-    Component: React.ComponentType<any>; // Componente pasado como prop
-    showArrows?: boolean; // Nueva prop para mostrar o no flechas
+    items: any[];
+    Component: React.ComponentType<any>;
+    showArrows?: boolean;
     showDots?: boolean;
     currentIndex: number;
-    // Nueva prop para mostrar o no dots
+
 }
 
 const PreviousArrow: React.FC<ArrowProps> = ({ className, style, onClick, }) => {
@@ -39,7 +39,7 @@ const PreviousArrow: React.FC<ArrowProps> = ({ className, style, onClick, }) => 
             }}
             onClick={onClick}
         >
-            &#10094; {/* Flecha izquierda */}
+            &#10094;
         </div>
     );
 };
@@ -60,7 +60,7 @@ const NextArrow: React.FC<ArrowProps> = ({ className, style, onClick }) => {
             }}
             onClick={onClick}
         >
-            &#10095; {/* Flecha derecha */}
+            &#10095;
         </div>
     );
 };
@@ -69,29 +69,28 @@ const Caroussel: React.FC<CarouselProps> = ({ items, Component, showArrows = tru
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
-        setMounted(true); // Solo se renderiza cuando el componente está montado en el cliente
+        setMounted(true);
     }, []);
 
 
     const settings = {
-        dots: showDots, // Se muestra o no dependiendo de la prop
+        dots: showDots,
         infinite: true,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
-        arrows: showArrows, // Se muestra o no dependiendo de la prop
-        prevArrow: showArrows ? <PreviousArrow /> : undefined, // Condicional para mostrar la flecha anterior
+        arrows: showArrows,
+        prevArrow: showArrows ? <PreviousArrow /> : undefined,
         nextArrow: showArrows ? <NextArrow /> : undefined,
-        initialSlide: currentIndex, // Establece el índice inicial del carrusel
-        // Condicional para mostrar la flecha siguiente
+        initialSlide: currentIndex,
+
     };
 
-    if (!mounted) return null; // Evita renderizar en el servidor
-
+    if (!mounted) return null;
     return (
-        <div className="carousel-container relative"> {/* Asegura que el contenedor sea relative */}
+        <div className="carousel-container relative">
             <Slider {...settings}>
                 {items.map((item, index) => (
                     <div key={index}>

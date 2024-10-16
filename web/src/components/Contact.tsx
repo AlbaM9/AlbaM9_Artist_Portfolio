@@ -1,30 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-// import '../styles/contact.scss';
+
 
 
 const Contact: React.FC<any> = () => {
-    // Estado para controlar la visibilidad de la flecha
+
     const [showArrow, setShowArrow] = useState<boolean>(false);
-    const [lastScrollY, setLastScrollY] = useState<number>(0); // Estado para rastrear la última posición de scroll
+    const [lastScrollY, setLastScrollY] = useState<number>(0);
 
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY: number = window.scrollY;
 
-            // Mostrar flecha si el usuario ha bajado más de 300px y está desplazándose hacia abajo
-            if (currentScrollY > 300) {
-                setShowArrow(true); // Mostrar flecha si ha bajado más de 300px
 
-                // Ocultar flecha si el usuario se está desplazando hacia abajo
+            if (currentScrollY > 300) {
+                setShowArrow(true);
+
+
                 if (currentScrollY > lastScrollY) {
                     setShowArrow(false);
                 }
             } else {
-                setShowArrow(false); // Ocultar flecha si está en la parte superior
+                setShowArrow(false);
             }
 
-            // Actualizar la posición de scroll actual
+
             setLastScrollY(currentScrollY);
         };
 
@@ -33,7 +33,7 @@ const Contact: React.FC<any> = () => {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, [lastScrollY]); // Escuchar cambios en `lastScrollY`
+    }, [lastScrollY]);
 
     return (
         <>
@@ -57,19 +57,19 @@ const Contact: React.FC<any> = () => {
                     </p>
                 </div>
                 <Link
-                    href="/contact" // Cambia 'to' por 'href' y utiliza el nombre de la ruta en minúsculas.
+                    href="/contact"
                     className="text-lg border border-white rounded-full px-4 py-2 transition-all duration-300 hover:bg-white hover:border-black hover:text-black transform hover:scale-110"
                 >
                     Contact me
                 </Link>
             </div>
 
-            {/* Flecha que aparece cuando haces scroll hacia abajo */}
+
             {showArrow && (
                 <button
                     onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                     className="fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-white text-black p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-125 hover:bg-opacity-100"
-                    style={{ opacity: 0.7 }} // Establece la transparencia inicial
+                    style={{ opacity: 0.7 }}
                 >
                     ↑
                 </button>
