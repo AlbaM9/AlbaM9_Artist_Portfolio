@@ -2,13 +2,13 @@
 
 // app/contact/page.tsx
 import React, { useState } from 'react';
-import emailjs from 'emailjs-com';
 import '../globals.css';
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
 import Link from 'next/link'; // Importa el Link de Next.js
+import emailjs from 'emailjs-com';
 
 
 const menuItems = [
@@ -33,15 +33,14 @@ const ContactForm: React.FC = () => {
         e.preventDefault();
 
         emailjs.sendForm(
-            'YOUR_SERVICE_ID', // Reemplaza con tu Service ID
-            'YOUR_TEMPLATE_ID', // Reemplaza con tu Template ID
-            e.currentTarget,
-            'YOUR_USER_ID' // Reemplaza con tu User ID
+            process.env.NEXT_PUBLIC_SERVICE_ID as string,  // Service ID
+            process.env.NEXT_PUBLIC_TEMPLATE_ID as string, // Template ID
+            e.currentTarget,                   // Form element
+            process.env.NEXT_PUBLIC_USER_ID as string
         )
             .then((result) => {
                 console.log(result.text);
                 setSuccess(true);
-                // Resetear el formulario
                 setName('');
                 setEmail('');
                 setSubject('');

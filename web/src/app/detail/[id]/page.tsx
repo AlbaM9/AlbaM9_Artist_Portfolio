@@ -15,7 +15,7 @@ interface Work {
     linkThingiverse: string;
     quote: string;
     author: string;
-    images: { url: string; id: number }[]; // El array de imágenes contiene objetos con url e id.
+    images: { url: string; id: number }[];
 }
 
 const ImageComponent = ({ image, onClick, isModal = false }: { image: string; onClick: () => void; isModal?: boolean }) => (
@@ -30,21 +30,21 @@ const ImageComponent = ({ image, onClick, isModal = false }: { image: string; on
 );
 
 const Detail = () => {
-    const { id } = useParams(); // Obtiene el id de la URL
+    const { id } = useParams();
     const [DetailWork, setDetailWork] = useState<Work | null>(null);
     const [showModal, setShowModal] = useState<boolean>(false);
     const [currentImage, setCurrentImage] = useState<string | null>(null);
     const carouselRef = useRef<any>(null);
-    const [loading, setLoading] = useState(true); // Estado de carga
-    const [error, setError] = useState<string | null>(null); // Estado de error
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         const fetchWork = async () => {
             setLoading(true);
-            setError(null); // Resetear el estado de error antes de la solicitud
+            setError(null);
             try {
-                const response = await fetch(`http://localhost:3000/api/detail/${id}`); // Verificar que id esté actualizado
-                console.log(`Fetching work with ID: ${id}`); // Para verificar el ID que se está usando
+                const response = await fetch(`http://localhost:3000/api/detail/${id}`);
+                console.log(`Fetching work with ID: ${id}`);
 
                 if (!response.ok) {
                     throw new Error(`Error en la solicitud: ${response.status}`);
@@ -52,15 +52,15 @@ const Detail = () => {
 
                 const data: Work = await response.json();
 
-                // Asegúrate de que data tenga la estructura esperada
+
                 console.log('Datos recibidos:', data);
 
-                // Ordenar las imágenes por `id`
+
                 const sortedImages = data.images.sort((a, b) => a.id - b.id);
 
                 setDetailWork({ ...data, images: sortedImages });
                 if (sortedImages.length > 0) {
-                    setCurrentImage(sortedImages[0].url); // Usar la url de la primera imagen después de ordenar
+                    setCurrentImage(sortedImages[0].url);
                 }
             } catch (error) {
                 setError('Error al cargar el trabajo. Por favor, inténtalo de nuevo más tarde.');
@@ -73,7 +73,7 @@ const Detail = () => {
         if (id) {
             fetchWork();
         } else {
-            console.warn('ID no está definido'); // Para verificar si id es null o undefined
+            console.warn('ID no está definido');
         }
     }, [id]);
 
@@ -86,7 +86,7 @@ const Detail = () => {
     const handleImageSelect = (image: string) => {
         setCurrentImage(image);
         if (carouselRef.current) {
-            const index = DetailWork?.images.findIndex((img) => img.url === image) || 0; // Actualizado para usar url
+            const index = DetailWork?.images.findIndex((img) => img.url === image) || 0;
             carouselRef.current.slickGoTo(index);
         }
     };
@@ -129,16 +129,16 @@ const Detail = () => {
 
                 <div className="flex flex-col lg:flex-row mb-18 items-center justify-center">
                     {DetailWork.images && DetailWork.images.length > 0 && (
-                        <div className="w-[70vw] lg:w-[45vw] lg:mt-18 xl:w-[37vw] xl:mt-0 xl:ml-18 cursor-pointer">
+                        <div className="w-[70vw] lg:w-[45vw] xl:w-[37vw] xl:mt-0 xl:ml-18 cursor-pointer">
                             <Caroussel
                                 items={DetailWork.images.map((image) => ({
-                                    image: image.url, // Acceder a la url de la imagen
+                                    image: image.url,
                                     onClick: () => handleImageClick(image.url),
                                 }))}
                                 showArrows={false}
                                 showDots={true}
                                 Component={ImageComponent}
-                                currentIndex={DetailWork.images.findIndex((img) => img.url === currentImage) || 0} // Comparar por url
+                                currentIndex={DetailWork.images.findIndex((img) => img.url === currentImage) || 0}
                             />
                         </div>
                     )}

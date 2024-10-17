@@ -2,6 +2,8 @@ import express, { Request, Response } from 'express';
 import next from 'next';
 import mysql from 'mysql2/promise';
 import dotenv from 'dotenv';
+
+
 dotenv.config();
 
 const dev = process.env.NODE_ENV !== 'production';
@@ -180,6 +182,7 @@ app.prepare().then(() => {
             }
         }
     });
+
 
 
     server.all('*', (req: Request, res: Response) => {
