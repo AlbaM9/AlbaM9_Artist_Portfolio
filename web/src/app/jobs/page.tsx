@@ -88,7 +88,7 @@ const JobsPage: React.FC = () => {
 
     return (
         <div className="bg-cover bg-top bg-fixed bg-no-repeat" style={{
-            backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url('/images/plantRoom.jpg')"
+            backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('/images/plantRoom.jpg')"
         }}>
             <Header menuItems={menuItems} />
             <div className="flex flex-col items-center text-white pt-[10vh] bg-transparent">

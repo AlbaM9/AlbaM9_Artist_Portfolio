@@ -23,7 +23,8 @@ const ImageComponent = ({ image, onClick, isModal = false }: { image: string; on
         <img
             src={image}
             alt="Imagen del trabajo"
-            className={`h-[65vh] ${isModal ? 'w-auto rounded-none' : 'w-[65vh] rounded-full object-cover'} shadow-lg`}
+            className={`object-cover shadow-lg 
+            ${isModal ? 'max-w-[60vw] max-h-[60vh] aspect-auto rounded-none' : 'w-[65vw] aspect-square rounded-full'}`}
         />
     </div>
 );
@@ -113,20 +114,22 @@ const Detail = () => {
     }
     console.log(DetailWork)
 
+
+
     return (
         <div className="flex flex-col min-h-screen bg-cover bg-center bg-no-repeat" style={{
-            backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url('/images/fire.jpg')"
+            backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('/images/fire.jpg')"
         }}>
             <Header menuItems={menuItems} />
             <div className="p-16">
-                <div className="flex-grow p-5 mt-6 justify-center">
+                <div className="flex-grow p-5  justify-center ">
                     <h1 className="text-4xl font-bold text-white text-center mb-4">{DetailWork.title}</h1>
-                    <p className="mt-2 text-lg text-white text-center">{DetailWork.description}</p>
+                    <p className="mt-2 text-lg text-white text-center ">{DetailWork.description}</p>
                 </div>
 
-                <div className="flex flex-row mt-6 mb-18">
+                <div className="flex flex-col lg:flex-row mb-18 items-center justify-center">
                     {DetailWork.images && DetailWork.images.length > 0 && (
-                        <div className="w-[50vw] h-auto cursor-pointer">
+                        <div className="w-[70vw] lg:w-[45vw] lg:mt-18 xl:w-[37vw] xl:mt-0 xl:ml-18 cursor-pointer">
                             <Caroussel
                                 items={DetailWork.images.map((image) => ({
                                     image: image.url, // Acceder a la url de la imagen
@@ -140,12 +143,12 @@ const Detail = () => {
                         </div>
                     )}
 
-                    <div className="p-10 text-white flex-grow pl-8">
-                        <p className="text-lg mt-10">{DetailWork.detail}</p>
-                        <p className="text-lg mt-18 italic text-center font-extralight pr-18 pl-18 pb-6">
+                    <div className="p-10 text-white flex-grow pl-8 ">
+                        <p className="text-lg mt-10 sm:text-center">{DetailWork.detail}</p>
+                        <p className="text-lg mt-18 italic text-center font-extralight pr-18 pl-18 pb-6 xl:pr-36 xl:pl-36">
                             &quot;{DetailWork.quote}&quot;
                         </p>
-                        <div className="flex justify-end pr-18">
+                        <div className="flex justify-end pr-18 xl:pr-36 xl:pl-36">
                             <span className="text-lg italic font-extralight">
                                 - {DetailWork.author}
                             </span>

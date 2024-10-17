@@ -52,7 +52,7 @@ const Home: React.FC<HomeProps> = () => {
   return (
     <div
       className="italic leading-tight bg-cover bg-top bg-fixed bg-no-repeat"
-      style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('/images/BG_WebApaisant.jpg')" }}
+      style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('/images/BG_WebApaisant.jpg')" }}
     >
       {/* Header */}
       <Header menuItems={menuItems} />
@@ -64,7 +64,7 @@ const Home: React.FC<HomeProps> = () => {
       </section>
 
       <section id="gallery" className="py-16">
-        <h1 className="text-white text-3xl text-center ">Jobs</h1>
+        <h1 className="mt-64 lg:mt-0 text-white text-3xl text-center ">Jobs</h1>
         <div className="flex flex-col items-center mt-4 p-10">
           {/* Elemento Superior */}
           <div className="w-[24rem] h-auto aspect-w-16 aspect-h-9 transition-transform duration-300 hover:scale-105 mb-4">

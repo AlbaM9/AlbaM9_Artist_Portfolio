@@ -39,7 +39,7 @@ const Contact: React.FC<any> = () => {
         <>
             <h1 className="text-2xl md:text-4xl text-white text-center mb-8">Contact</h1>
 
-            <div className="contactMe flex justify-center items-center gap-40 my-10 text-white text-lg">
+            <div className="flex flex-col lg:flex-row justify-center items-center gap-40 my-10 text-white text-lg">
                 <div className="w-[45vw]">
                     <p className="mb-4">
                         <strong>Are you looking for artistic innovation with a unique flair?</strong><br />
