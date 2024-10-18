@@ -19,15 +19,15 @@ interface Work {
 }
 
 const ImageComponent = ({ image, onClick, isModal = false }: { image: string; onClick: () => void; isModal?: boolean }) => (
-    <div className="flex justify-center cursor-pointer" onClick={onClick}>
+    <div className="flex justify-center items-center w-full h-full cursor-pointer" onClick={onClick}>
         <img
             src={image}
             alt="Imagen del trabajo"
-            className={`object-cover shadow-lg 
-            ${isModal ? 'max-w-[60vw] max-h-[60vh] aspect-auto rounded-none' : 'w-[65vw] aspect-square rounded-full'}`}
+            className={`shadow-lg w-full h-full ${isModal ? 'object-contain rounded-none' : 'object-cover w-[65vw] aspect-square rounded-full'}`}
         />
     </div>
 );
+
 
 const Detail = () => {
     const { id } = useParams();
@@ -129,7 +129,7 @@ const Detail = () => {
 
                 <div className="flex flex-col lg:flex-row mb-18 items-center justify-center">
                     {DetailWork.images && DetailWork.images.length > 0 && (
-                        <div className="w-[70vw] lg:w-[45vw] xl:w-[37vw] xl:mt-0 xl:ml-18 cursor-pointer">
+                        <div className="w-[65vw] lg:w-[50vw] lg:mb-32 xl:w-[35vw] xl:mt-0 xl:ml-18 cursor-pointer">
                             <Caroussel
                                 items={DetailWork.images.map((image) => ({
                                     image: image.url,
@@ -162,7 +162,7 @@ const Detail = () => {
                                         target="_blank"
                                         rel="noopener noreferrer">
                                         <img
-                                            src="/images/logoTV.png"
+                                            src="/images/Cults.png"
                                             alt={`Imagen adicional de ${DetailWork.title}`}
                                             className="rounded-lg shadow-md h-[40px] w-[40px] mt-4 transition-transform duration-300 hover:scale-150"
                                         />
@@ -183,34 +183,38 @@ const Detail = () => {
                 </div>
 
                 {showModal && (
-                    <div className="fixed inset-0 bg-black bg-opacity-90 flex flex-col justify-center items-center z-50 pt-18">
-                        <div className="relative w-[80vw] h-[80vh] overflow-hidden">
+                    <div className="fixed inset-0 bg-black bg-opacity-90 flex justify-center items-center z-50 pt-10"> {/* Reducir padding arriba */}
+                        <div className="relative w-[80vw] h-[95vh] overflow-hidden flex flex-col">
                             <button
                                 className="absolute top-4 right-4 text-white text-4xl z-50 cursor-pointer"
                                 onClick={closeModal}
                             >
                                 &#10005;
                             </button>
-                            <ImageComponent image={currentImage!} onClick={() => { }} isModal={true} />
-                        </div>
 
-                        <div className="flex flex-col items-center">
-                            <div className="flex justify-center overflow-x-auto">
-                                <div className="flex space-x-10 mb-18">
-                                    {DetailWork.images.map((image, index) => (
-                                        <img
-                                            key={index}
-                                            src={image.url} // Mostrar la url de la imagen
-                                            alt={`Imagen adicional de ${DetailWork.title}`}
-                                            className={`rounded-lg shadow-md h-32 object-cover cursor-pointer ${currentImage === image.url ? 'border-2 border-blue-500' : ''}`}
-                                            onClick={() => handleImageSelect(image.url)} // Usar la url para la selección
-                                        />
-                                    ))}
-                                </div>
+                            {/* Imagen principal */}
+                            <div className="flex justify-center items-center h-[75%]"> {/* Aumentar la altura de la imagen principal */}
+                                <ImageComponent image={currentImage!} onClick={() => { }} isModal={true} />
+                            </div>
+
+                            {/* Nueva columna de imágenes en miniatura debajo de la imagen principal */}
+                            <div className="flex justify-center overflow-x-auto space-x-4 py-4 mt-8 mb-8"> {/* Agregar margen arriba para espacio */}
+                                {DetailWork.images.map((image, index) => (
+                                    <img
+                                        key={index}
+                                        src={image.url} // Mostrar la url de la imagen
+                                        alt={`Imagen adicional de ${DetailWork.title}`}
+                                        className={`rounded-lg shadow-md h-32  object-contain cursor-pointer ${currentImage === image.url ? 'border-2 border-blue-500' : ''}`} // Tamaño fijo para miniaturas
+                                        onClick={() => handleImageSelect(image.url)} // Usar la url para la selección
+                                    />
+                                ))}
                             </div>
                         </div>
                     </div>
                 )}
+
+
+
             </div>
             <Footer />
         </div>

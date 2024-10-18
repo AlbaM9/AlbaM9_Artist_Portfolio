@@ -23,7 +23,7 @@ const AboutMe: React.FC<Props> = () => {
                 </section>
                 < section className="nameImage flex flex-col items-center  lg:items-start text-white text-xl p-8" >
                     <img
-                        className="xl:w-[500px] xl:h-[500px] rounded-full object-cover md:w-[400px] md:h-[400px]"
+                        className="w-[400px] h-[400px] xl:w-[500px] xl:h-[500px] rounded-full object-cover"
                         src="https://m.media-amazon.com/images/I/71BlMzossmL._AC_UF894,1000_QL80_.jpg"
                         alt="Alba Melchor Gómez"
                     />
