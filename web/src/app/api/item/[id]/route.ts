@@ -29,8 +29,8 @@ export async function GET(request: Request, { params }: { params: { id: string }
                 i.detail,
                 i.category,
                 i.linkThingiverse,
-                GROUP_CONCAT(DISTINCT q.quote) AS quotes,
-                GROUP_CONCAT(DISTINCT q.author) AS authors,
+                GROUP_CONCAT(DISTINCT q.quote) AS quote,
+                GROUP_CONCAT(DISTINCT q.author) AS author,
                 GROUP_CONCAT(DISTINCT img.image_url ORDER BY img.id) AS images,
                 GROUP_CONCAT(DISTINCT img.id ORDER BY img.id) AS image_ids,
                 GROUP_CONCAT(DISTINCT t.tag) AS tags
@@ -61,8 +61,8 @@ export async function GET(request: Request, { params }: { params: { id: string }
             detail: rows[0].detail,
             category: rows[0].category,
             linkThingiverse: rows[0].linkThingiverse,
-            quotes: rows[0].quotes ? rows[0].quotes.split(',') : [],
-            authors: rows[0].authors ? rows[0].authors.split(',') : [],
+            quote: rows[0].quote,
+            author: rows[0].author,
             images: rows[0].images && rows[0].image_ids ? rows[0].images.split(',').map((url: string, index: number) => ({
                 id: rows[0].image_ids.split(',')[index],
                 url: url.trim(),
