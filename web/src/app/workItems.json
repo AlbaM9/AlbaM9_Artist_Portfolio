@@ -1,0 +1,133 @@
+[
+    {
+        "id": 1,
+        "title": "Majora´s Mask",
+        "description": "Legend of Zelda: Majora´s Mask",
+        "detail": "Una representación de Majora's Mask, un título icónico de la saga Zelda, que explora temas de tiempo y transformación. Este trabajo captura la esencia oscura del juego.",
+        "category": "2d-print",
+        "tags": [
+            "zelda",
+            "retro",
+            "videogames",
+            "majora"
+        ],
+        "images": [
+            "/images/MAJMOD.png",
+            "https://picsum.photos/500/400",
+            "https://picsum.photos/550/450",
+            "https://picsum.photos/520/420"
+        ],
+        "linkThingiverse": "https://www.thingiverse.com/thing:123456",
+        "quotes": {
+            "quote": "The one who has the power to change the fate of this world... is you. Tonight, a terrible fate awaits you.",
+            "author": "Skull Kid"
+        }
+    },
+    {
+        "id": 2,
+        "title": "Aku Aku & Uka Uka",
+        "description": "Crash Bandicoot Saga",
+        "detail": "Las máscaras Aku Aku y Uka Uka son dos fuerzas opuestas en el mundo de Crash Bandicoot: Aku Aku, la sabia y benevolente máscara protectora, guía a los héroes en sus aventuras, mientras que Uka Uka, su oscuro y malévolo hermano, desata el caos y la destrucción. Juntas, simbolizan la eterna lucha entre el bien y el mal en un vibrante universo lleno de desafíos.",
+        "category": "2d-print",
+        "tags": [
+            "poster",
+            "art",
+            "event"
+        ],
+        "images": [
+            "/images/akuUka.jpg",
+            "https://picsum.photos/500/400",
+            "https://picsum.photos/550/450",
+            "https://picsum.photos/520/420"
+        ],
+        "linkThingiverse": "https://www.thingiverse.com/thing:123457",
+        "quotes": {
+            "quote": "Crash, Crash, Crash. Why must you always muck in my mud? Oh, look! I have a mask to help me too! We'll see which one is more powerful soon!",
+            "author": "Dr. Neo Cortex"
+        }
+    },
+    {
+        "id": 3,
+        "title": "Print 3",
+        "description": "Descripción de 2D Print 3. Diseño gráfico para impresión en ropa.",
+        "detail": "Un diseño gráfico innovador creado para ser impreso en ropa, combinando estilo y funcionalidad. Perfecto para la moda contemporánea.",
+        "category": "2d-print",
+        "tags": [
+            "graphic design",
+            "clothing",
+            "fashion"
+        ],
+        "images": [
+            "https://picsum.photos/420/320",
+            "https://picsum.photos/520/420"
+        ],
+        "linkThingiverse": "https://www.thingiverse.com/thing:123458",
+        "quotes": {
+            "quote": "The one who has the power to change the fate of this world... is you. Tonight, a terrible fate awaits you.",
+            "author": "Skull Kid"
+        }
+    },
+    {
+        "id": 4,
+        "title": "Model 1",
+        "description": "Descripción de Model 1. Modelo 3D de un personaje para videojuegos.",
+        "detail": "Un modelo 3D detallado de un personaje de videojuego, diseñado para ser utilizado en entornos de juego, con un enfoque en la estética y la funcionalidad.",
+        "category": "models",
+        "tags": [
+            "3D",
+            "character",
+            "video game"
+        ],
+        "images": [
+            "https://picsum.photos/460/360",
+            "https://picsum.photos/560/460"
+        ],
+        "linkThingiverse": "https://www.thingiverse.com/thing:123459",
+        "quotes": {
+            "quote": "The one who has the power to change the fate of this world... is you. Tonight, a terrible fate awaits you.",
+            "author": "Skull Kid"
+        }
+    },
+    {
+        "id": 5,
+        "title": "Model 2",
+        "description": "Descripción de Model 2. Modelo 3D para impresión en 3D.",
+        "detail": "Un modelo 3D optimizado para impresión, creado para esculturas físicas y demostraciones artísticas. Ideal para proyectos creativos.",
+        "category": "models",
+        "tags": [
+            "3D",
+            "print",
+            "sculpture"
+        ],
+        "images": [
+            "https://picsum.photos/470/370",
+            "https://picsum.photos/570/470"
+        ],
+        "linkThingiverse": "https://www.thingiverse.com/thing:123460",
+        "quotes": {
+            "quote": "The one who has the power to change the fate of this world... is you. Tonight, a terrible fate awaits you.",
+            "author": "Skull Kid"
+        }
+    },
+    {
+        "id": 6,
+        "title": "Model 3",
+        "description": "Descripción de Model 3. Escultura digital para cine.",
+        "detail": "Escultura digital que puede ser utilizada en producciones cinematográficas, ofreciendo un alto nivel de detalle y versatilidad.",
+        "category": "models",
+        "tags": [
+            "digital sculpture",
+            "film",
+            "art"
+        ],
+        "images": [
+            "https://picsum.photos/480/380",
+            "https://picsum.photos/580/480"
+        ],
+        "linkThingiverse": "https://www.thingiverse.com/thing:123461",
+        "quotes": {
+            "quote": "The one who has the power to change the fate of this world... is you. Tonight, a terrible fate awaits you.",
+            "author": "Skull Kid"
+        }
+    }
+]
