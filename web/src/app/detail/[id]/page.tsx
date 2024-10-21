@@ -43,7 +43,7 @@ const Detail = () => {
             setLoading(true);
             setError(null);
             try {
-                const response = await fetch(`http://localhost:3000/api/detail/${id}`);
+                const response = await fetch(`/api/item/${id}`);
                 console.log(`Fetching work with ID: ${id}`);
 
                 if (!response.ok) {

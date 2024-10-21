@@ -32,7 +32,7 @@ const JobsPage: React.FC = () => {
         const fetchWorks = async () => {
             setLoading(true);
             try {
-                const response = await fetch('http://localhost:3000/api/items');
+                const response = await fetch('/api/items');
                 const data = await response.json();
                 console.log('Datos de la API:', data);
 
