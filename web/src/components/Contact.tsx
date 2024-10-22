@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
-
-
 const Contact: React.FC<any> = () => {
-
     const [showArrow, setShowArrow] = useState<boolean>(false);
     const [lastScrollY, setLastScrollY] = useState<number>(0);
 
@@ -12,18 +9,14 @@ const Contact: React.FC<any> = () => {
         const handleScroll = () => {
             const currentScrollY: number = window.scrollY;
 
-
             if (currentScrollY > 300) {
                 setShowArrow(true);
-
-
                 if (currentScrollY > lastScrollY) {
                     setShowArrow(false);
                 }
             } else {
                 setShowArrow(false);
             }
-
 
             setLastScrollY(currentScrollY);
         };
@@ -40,12 +33,11 @@ const Contact: React.FC<any> = () => {
             <h1 className="text-2xl md:text-4xl text-white text-center mb-8">Contact</h1>
 
             <div className="flex flex-col ml-0 mr-0 lg:flex-row justify-center items-center gap-40 lg:my-10 text-white text-lg">
-
-                <div className=" w-[65vw] lg:w-[45vw]">
+                <div className="w-[65vw] lg:w-[45vw]">
                     <p className="mb-4">
                         <strong>Are you looking for artistic innovation with a unique flair?</strong><br />
                         As a 3D artist, I’m passionate about creating visually captivating and original designs that bring your creative ideas to life.
-                        Whether it's intricate 3D models or custom artwork, I aim to deliver pieces that inspire and make an impact.
+                        Whether it&apos;s intricate 3D models or custom artwork, I aim to deliver pieces that inspire and make an impact.
                     </p>
 
                     <p className="mb-4">
@@ -64,7 +56,6 @@ const Contact: React.FC<any> = () => {
                     Contact me
                 </Link>
             </div>
-
 
             {showArrow && (
                 <button
