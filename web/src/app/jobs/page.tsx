@@ -5,7 +5,6 @@ import React, { useEffect, useState, Suspense } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Link from 'next/link';
-import Image from 'next/image'; // Importar el componente Image de Next.js
 
 interface Work {
     id: number;
@@ -13,7 +12,7 @@ interface Work {
     description: string;
     category: string;
     tags: string[];
-    images: { url: string, id: number }[];
+    images: { url: string; id: number }[];
 }
 
 const JobsPage: React.FC = () => {
@@ -98,21 +97,21 @@ const JobsPage: React.FC = () => {
                         <button
                             key="all"
                             onClick={() => handleTabClick('all')}
-                            className={`w-auto bg-white bg-opacity-40 hover:bg-opacity-60 text-white font-semibold py-2 px-4 rounded transition duration-200 border border-transparent focus:border-blue-400 focus:ring-2 focus:ring-blue-400 h-12 ${activeTab === 'all' ? 'ring-2 ring-blue-400' : ''}`} // Añadir efecto de halo
+                            className={`w-auto bg-white bg-opacity-40 hover:bg-opacity-60 text-white font-semibold py-2 px-4 rounded transition duration-200 border border-transparent focus:border-blue-400 focus:ring-2 focus:ring-blue-400 h-12 ${activeTab === 'all' ? 'ring-2 ring-blue-400' : ''}`}
                         >
                             All
                         </button>
                         <button
                             key="models"
                             onClick={() => handleTabClick('models')}
-                            className={`bg-white bg-opacity-40 hover:bg-opacity-60 text-white font-semibold py-2 px-4 rounded transition duration-200 border border-transparent focus:border-green-400 focus:ring-2 focus:ring-green-400 h-12 ${activeTab === 'models' ? 'ring-2 ring-green-400' : ''}`} // Añadir efecto de halo
+                            className={`bg-white bg-opacity-40 hover:bg-opacity-60 text-white font-semibold py-2 px-4 rounded transition duration-200 border border-transparent focus:border-green-400 focus:ring-2 focus:ring-green-400 h-12 ${activeTab === 'models' ? 'ring-2 ring-green-400' : ''}`}
                         >
                             3DModels
                         </button>
                         <button
                             key="3d-print"
                             onClick={() => handleTabClick('3d-print')}
-                            className={`bg-white bg-opacity-40 hover:bg-opacity-60 text-white font-semibold py-2 px-4 rounded transition duration-200 border border-transparent focus:border-red-400 focus:ring-2 focus:ring-red-400 h-12 ${activeTab === '3d-print' ? 'ring-2 ring-red-400' : ''}`} // Añadir efecto de halo
+                            className={`bg-white bg-opacity-40 hover:bg-opacity-60 text-white font-semibold py-2 px-4 rounded transition duration-200 border border-transparent focus:border-red-400 focus:ring-2 focus:ring-red-400 h-12 ${activeTab === '3d-print' ? 'ring-2 ring-red-400' : ''}`}
                         >
                             3DPrints
                         </button>
@@ -136,8 +135,8 @@ const JobsPage: React.FC = () => {
                             <div key={work.id} className="rounded-lg p-4 shadow-lg flex flex-col justify-center items-center text-center">
                                 <h3 className="font-bold text-xl mb-2">{work.title}</h3>
                                 <p>{work.description}</p>
-                                <Image
-                                    src={work.images.length > 0 ? work.images[0].url : '/default-image.jpg'} // Mostrar la primera imagen
+                                <img
+                                    src={work.images.length > 0 ? work.images[0].url : '/default-image.jpg'}
                                     className="w-full h-auto object-cover mt-10 rounded-full aspect-square hover:scale-110 transform transition duration-300 cursor-pointer"
                                     alt={`Imagen de ${work.title}`}
                                     onClick={() => handleImageClick(work.id)}
