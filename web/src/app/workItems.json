@@ -12,7 +12,7 @@
             "majora"
         ],
         "images": [
-            "/images/MAJMOD.png",
+            "/Images/MAJMOD.png",
             "https://picsum.photos/500/400",
             "https://picsum.photos/550/450",
             "https://picsum.photos/520/420"
@@ -35,7 +35,7 @@
             "event"
         ],
         "images": [
-            "/images/akuUka.jpg",
+            "/Images/akuUka.jpg",
             "https://picsum.photos/500/400",
             "https://picsum.photos/550/450",
             "https://picsum.photos/520/420"

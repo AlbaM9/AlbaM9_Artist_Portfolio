@@ -118,7 +118,7 @@ const Detail = () => {
 
     return (
         <div className="flex flex-col min-h-screen bg-cover bg-center bg-no-repeat" style={{
-            backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('/images/fire.jpg')"
+            backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('/Images/fire.jpg')"
         }}>
             <Header menuItems={menuItems} />
             <div className="p-16">
@@ -162,7 +162,7 @@ const Detail = () => {
                                         target="_blank"
                                         rel="noopener noreferrer">
                                         <img
-                                            src="/images/Cults.png"
+                                            src="/Images/Cults.png"
                                             alt={`Imagen adicional de ${DetailWork.title}`}
                                             className="rounded-lg shadow-md h-[40px] w-[40px] mt-4 transition-transform duration-300 hover:scale-150"
                                         />

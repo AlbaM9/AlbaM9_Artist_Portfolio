@@ -14,7 +14,7 @@ const Footer: React.FC<any> = () => {
 
                     <div className="flex space-x-5 items-center">
                         <a href="https://cults3d.com/es/usuarios/albam9art/modelos-3d" className=" cursor-pointer">
-                            <img src="/images/Cults.png" alt="" className='w-6 h-6' />
+                            <img src="/Images/Cults.png" alt="" className='w-6 h-6' />
                         </a>
                         {/*<a href="https://www.instagram.com" target="_blank" rel="noreferrer">
                             <FontAwesomeIcon icon={faInstagram} className="w-6 h-6 text-pink-400" aria-hidden="true" />

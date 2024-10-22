@@ -24,7 +24,7 @@ const AboutMe: React.FC<Props> = () => {
                 < section className="nameImage flex flex-col items-center  lg:items-start text-white text-xl p-8" >
                     <img
                         className="w-[400px] h-[400px] xl:w-[500px] xl:h-[500px] rounded-full object-cover"
-                        src="https://m.media-amazon.com/images/I/71BlMzossmL._AC_UF894,1000_QL80_.jpg"
+                        src="https://m.media-amazon.com/Images/I/71BlMzossmL._AC_UF894,1000_QL80_.jpg"
                         alt="Alba Melchor Gómez"
                     />
                     <span className="  text-lg font-semibold mt-4" > Alba Melchor Gómez </span>

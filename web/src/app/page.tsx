@@ -22,19 +22,19 @@ const Home: React.FC<HomeProps> = () => {
   const itemsForBanners = [
     {
       id: 1, // Agregando ID
-      backgroundImage: '/images/logoinaleb.png',
+      backgroundImage: '/Images/logoinaleb.png',
       title: "All",
       link: "/jobs?tab=all",
     },
     {
       id: 2, // Agregando ID
-      backgroundImage: '/images/TOTED.png',
+      backgroundImage: '/Images/TOTED.png',
       title: "3D Models",
       link: "/jobs?tab=models",  // Añadimos query param
     },
     {
       id: 3, // Agregando ID
-      backgroundImage: '/images/MAJMOD.png',
+      backgroundImage: '/Images/MAJMOD.png',
       title: "3D Prints",
       link: "/jobs?tab=3d-print",  // Añadimos query param
     }
@@ -49,7 +49,7 @@ const Home: React.FC<HomeProps> = () => {
   return (
     <div
       className="italic leading-tight bg-cover bg-top bg-fixed bg-no-repeat"
-      style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('/images/BG_WebApaisant.jpg')" }}
+      style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('/Images/BG_WebApaisant.jpg')" }}
     >
       {/* Header */}
       <Header menuItems={menuItems} />

@@ -56,7 +56,7 @@ const ContactForm: React.FC = () => {
             className=""
             style={{
                 backgroundImage:
-                    "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),  url('/images/playground.jpg')",
+                    "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),  url('/Images/playground.jpg')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
 
