@@ -5,16 +5,24 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "NODE_ENV=production ts-node server.ts",
+    "lint": "next lint",
+    "dev:server": "ts-node src/server.ts"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-brands-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@tailwindcss/typography": "^0.5.15",
+    "body-parser": "^1.20.3",
+    "cloudinary": "^2.5.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
     "emailjs-com": "^3.2.0",
+    "express": "^4.21.1",
+    "mysql2": "^3.11.3",
     "next": "^14.2.14",
+    "nodemailer": "^6.9.15",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2",
@@ -24,7 +32,9 @@
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
+    "@types/express": "^5.0.0",
     "@types/node": "^22.7.3",
+    "@types/nodemailer": "^6.4.16",
     "@types/react": "^18.3.9",
     "@types/react-scroll": "^1.8.10",
     "@types/react-slick": "^0.23.13",
@@ -33,6 +43,7 @@
     "eslint-config-next": "14.2.7",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.12",
+    "ts-node": "^10.9.2",
     "typescript": "^5.6.2"
   }
 }

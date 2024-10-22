@@ -1,12 +1,12 @@
 import React from 'react'
-//import '../styles/banners.scss'; // Importa los estilos globales
+
 import Link from 'next/link';
 import { Url } from 'next/dist/shared/lib/router/router';
 
 interface BannersProps {
     backgroundImage: string;
     title: string;
-    link?: any; // Si 'link' es opcional, puedes usar '?'
+    link?: any;
 
 
 }
