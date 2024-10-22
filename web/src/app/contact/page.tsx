@@ -12,10 +12,10 @@ import emailjs from 'emailjs-com';
 
 
 const menuItems = [
-    <Link href="/" className="text-white cursor-pointer hover:text-gray-600 hover:scale-110 transform transition duration-300">Home
+    <Link key="home" href="/" className="text-white cursor-pointer hover:text-gray-600 hover:scale-110 transform transition duration-300">Home
 
     </Link>,
-    <Link href="/jobs" className="text-white cursor-pointer hover:text-gray-600 hover:scale-110 transform transition duration-300">Jobs
+    <Link key="jobs" href="/jobs" className="text-white cursor-pointer hover:text-gray-600 hover:scale-110 transform transition duration-300">Jobs
 
     </Link>,
 ];
