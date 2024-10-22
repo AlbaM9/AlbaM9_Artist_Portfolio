@@ -146,7 +146,7 @@ const JobsPage: React.FC = () => {
                         ))
                     ) : (
                         <div className="col-span-1 md:col-span-2 lg:col-span-3 flex justify-center items-center text-center text-xl text-white h-[100vh]">
-                            "Sorry, I have not worked on this yet! Keep in touch :)"
+                            Sorry, I have not worked on this yet! Keep in touch :)
                         </div>
                     )}
                 </div>
