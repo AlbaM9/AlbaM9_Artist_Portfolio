@@ -1,10 +1,11 @@
 'use client';
 
 import { useRouter, useSearchParams } from 'next/navigation';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Link from 'next/link';
+import Image from 'next/image'; // Importar el componente Image de Next.js
 
 interface Work {
     id: number;
@@ -12,7 +13,7 @@ interface Work {
     description: string;
     category: string;
     tags: string[];
-    images: { url: string, id: number }[]; // Ahora el tipo es un array de objetos con URL e ID.
+    images: { url: string, id: number }[];
 }
 
 const JobsPage: React.FC = () => {
@@ -36,19 +37,19 @@ const JobsPage: React.FC = () => {
                 const data = await response.json();
                 console.log('Datos de la API:', data);
 
+                if (Array.isArray(data)) {
+                    const formattedData = data.map((work: any) => {
+                        return {
+                            ...work,
+                            images: work.images || [],
+                        };
+                    });
 
-                const formattedData = data.map((work: any) => {
-                    return {
-                        ...work,
-
-                        images: work.images || [],
-                    };
-                });
-
-                console.log(formattedData)
-
-                setWorks(formattedData);
-
+                    console.log(formattedData);
+                    setWorks(formattedData);
+                } else {
+                    console.error('Datos no válidos:', data);
+                }
             } catch (error) {
                 console.error('Error al cargar trabajos:', error);
             } finally {
@@ -59,8 +60,7 @@ const JobsPage: React.FC = () => {
         fetchWorks();
     }, []);
 
-    console.log(works)
-
+    console.log(works);
 
     const handleTabClick = (tab: '3d-print' | 'models' | 'all') => {
         setActiveTab(tab);
@@ -136,11 +136,13 @@ const JobsPage: React.FC = () => {
                             <div key={work.id} className="rounded-lg p-4 shadow-lg flex flex-col justify-center items-center text-center">
                                 <h3 className="font-bold text-xl mb-2">{work.title}</h3>
                                 <p>{work.description}</p>
-                                <img
-                                    src={work.images.length > 0 ? work.images[0].url : '/default-image.jpg'} // Mostrar la primera imagen, ordenada por ID
+                                <Image
+                                    src={work.images.length > 0 ? work.images[0].url : '/default-image.jpg'} // Mostrar la primera imagen
                                     className="w-full h-auto object-cover mt-10 rounded-full aspect-square hover:scale-110 transform transition duration-300 cursor-pointer"
                                     alt={`Imagen de ${work.title}`}
                                     onClick={() => handleImageClick(work.id)}
+                                    width={500} // Establecer un ancho apropiado
+                                    height={500} // Establecer una altura apropiada
                                 />
                             </div>
                         ))
@@ -157,4 +159,13 @@ const JobsPage: React.FC = () => {
     );
 };
 
-export default JobsPage;
+// Componente que envuelve JobsPage en Suspense
+const Page = () => {
+    return (
+        <Suspense fallback={<div>Cargando...</div>}>
+            <JobsPage />
+        </Suspense>
+    );
+};
+
+export default Page;
