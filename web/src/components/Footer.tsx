@@ -16,9 +16,7 @@ const Footer: React.FC<any> = () => {
                         <a href="https://cults3d.com/es/usuarios/albam9art/modelos-3d" className=" cursor-pointer">
                             <img src="/Images/Cults.png" alt="" className='w-6 h-6' />
                         </a>
-                        {/*<a href="https://www.instagram.com" target="_blank" rel="noreferrer">
-                            <FontAwesomeIcon icon={faInstagram} className="w-6 h-6 text-pink-400" aria-hidden="true" />
-                        </a>*/}
+
                         <a href="https://x.com/albam9_art" target="_blank" rel="noreferrer ">
                             <FontAwesomeIcon icon={faTwitter} className="w-6 h-6 text-blue-500" aria-hidden="true" />
                         </a>
