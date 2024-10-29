@@ -6,8 +6,8 @@ interface Props {
 
 const AboutMe: React.FC<Props> = () => {
     return (
-        <section className="flex flex-col items-center mt-[7vh] p-4 sm:p-8 lg:p-12">
-            <h1 className="text-white text-2xl md:text-4xl">About Me</h1>
+        <section className="flex flex-col items-center mt-[7vh] p-4 sm:p-8 lg:p-12 mb-">
+            <h1 className="text-white text-2xl md:text-4xl mb-16">About Me</h1>
             <section className="flex flex-col lg:flex-row justify-center gap-4 sm:gap-6 w-full">
                 <section className="desc flex flex-col items-center justify-center lg:w-[50vw]">
                     <p className="p-5 text-white text-lg w-[75%]">
@@ -22,7 +22,7 @@ const AboutMe: React.FC<Props> = () => {
                 </section>
                 <section className="nameImage flex flex-col items-center lg:items-start text-white text-lg sm:text-xl p-4 sm:p-8">
                     <img
-                        className="w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] lg:w-[300px] lg:h-[300px] xl:w-[400px] xl:h-[400px] rounded-full object-cover"
+                        className="w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] lg:w-[400px] lg:h-[400px] xl:w-[450px] xl:h-[450px] rounded-full object-cover"
                         src="/Images/logoinaleb.png"
                         alt="Alba Melchor Gómez"
                     />
