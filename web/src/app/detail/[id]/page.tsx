@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, Suspense } from 'react';
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
 import Caroussel from '../../../components/Caroussel';
@@ -28,7 +28,6 @@ const ImageComponent = ({ image, onClick, isModal = false }: { image: string; on
     </div>
 );
 
-
 const Detail = () => {
     const { id } = useParams();
     const [DetailWork, setDetailWork] = useState<Work | null>(null);
@@ -40,25 +39,25 @@ const Detail = () => {
 
     useEffect(() => {
         const fetchWork = async () => {
+            if (!id) {
+                console.warn('ID no está definido');
+                setLoading(false);
+                return;
+            }
+
             setLoading(true);
             setError(null);
+
             try {
                 const response = await fetch(`/api/item/${id}`);
-                console.log(`Fetching work with ID: ${id}`);
-
                 if (!response.ok) {
                     throw new Error(`Error en la solicitud: ${response.status}`);
                 }
 
                 const data: Work = await response.json();
-
-
-                console.log('Datos recibidos:', data);
-
-
                 const sortedImages = data.images.sort((a, b) => a.id - b.id);
-
                 setDetailWork({ ...data, images: sortedImages });
+
                 if (sortedImages.length > 0) {
                     setCurrentImage(sortedImages[0].url);
                 }
@@ -70,13 +69,8 @@ const Detail = () => {
             }
         };
 
-        if (id) {
-            fetchWork();
-        } else {
-            console.warn('ID no está definido');
-        }
+        fetchWork();
     }, [id]);
-
 
     const handleImageClick = (image: string) => {
         setCurrentImage(image);
@@ -101,89 +95,88 @@ const Detail = () => {
         <Link key="jobs" href="/jobs">Jobs</Link>,
     ];
 
-    if (loading) {
-        return <div className="text-white text-center">Cargando...</div>;
-    }
-
-    if (error) {
-        return <div className="text-red-500 text-center">{error}</div>;
-    }
-
-    if (!DetailWork) {
-        return <div className="text-white text-center">Trabajo no encontrado</div>;
-    }
-    console.log(DetailWork)
-
+    // Estado de carga o error
 
 
     return (
-        <div className="flex flex-col min-h-screen bg-cover bg-center bg-no-repeat" style={{
+        <div className="flex flex-col min-h-screen bg-cover bg-fixed bg-center bg-no-repeat " style={{
             backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('/Images/fire.jpg')"
         }}>
             <Header menuItems={menuItems} />
-            <div className="p-16">
-                <div className="flex-grow p-5  justify-center ">
-                    <h1 className="text-4xl font-bold text-white text-center mb-4">{DetailWork.title}</h1>
-                    <p className="mt-2 text-lg text-white text-center ">{DetailWork.description}</p>
-                </div>
+            <div className="p-16 flex-grow  flex items-center justify-center transition-opacity duration-500">
+                {loading ? (
+                    <div className="flex items-center justify-center h-screen text-white">
+                        Loading...
+                    </div>
+                ) : error ? (
+                    <div className="flex items-center justify-center h-screen text-white">
+                        {error}
+                    </div>
+                ) : DetailWork == null ? (
+                    <div className="flex items-center justify-center h-screen text-white">
+                        Trabajo no encontrado
+                    </div>
+                ) : (
+                    <div className="flex-grow p-5 justify-center">
+                        <h1 className="text-4xl font-bold text-white text-center mb-4">{DetailWork.title}</h1>
+                        <p className="mt-2 text-lg text-white text-center">{DetailWork.description}</p>
 
-                <div className="flex flex-col lg:flex-row mb-18 items-center justify-center">
-                    {DetailWork.images && DetailWork.images.length > 0 && (
-                        <div className="w-[65vw] lg:w-[50vw] lg:mb-32 xl:w-[35vw] xl:mt-0 xl:ml-18 cursor-pointer">
-                            <Caroussel
-                                items={DetailWork.images.map((image) => ({
-                                    image: image.url,
-                                    onClick: () => handleImageClick(image.url),
-                                }))}
-                                showArrows={false}
-                                showDots={true}
-                                Component={ImageComponent}
-                                currentIndex={DetailWork.images.findIndex((img) => img.url === currentImage) || 0}
-                            />
-                        </div>
-                    )}
-
-                    <div className="pt-8 md:p-10 md:pl-8 lg:p-4 text-white flex-grow  ">
-                        <p className="text-lg mt-10 sm:text-center">{DetailWork.detail}</p>
-                        <p className="text-lg mt-18 italic text-center font-extralight md:pr-18 md:pl-18 pb-6 xl:pr-36 xl:pl-36">
-                            &quot;{DetailWork.quote}&quot;
-                        </p>
-                        <div className="flex justify-end pr-18 xl:pr-36 xl:pl-36">
-                            <span className="text-lg italic font-extralight">
-                                - {DetailWork.author}
-                            </span>
-                        </div>
-
-                        <div className="flex flex-row justify-start gap-20 mt-18">
-                            {DetailWork.linkThingiverse && (
-                                <div className="flex flex-col items-center">
-                                    <p className="text-lg mt-10">Get model?</p>
-                                    <a href={DetailWork.linkThingiverse}
-                                        target="_blank"
-                                        rel="noopener noreferrer">
-                                        <img
-                                            src="/Images/Cults.png"
-                                            alt={`Imagen adicional de ${DetailWork.title}`}
-                                            className="rounded-lg shadow-md h-[40px] w-[40px] mt-4 transition-transform duration-300 hover:scale-150"
-                                        />
-                                    </a>
+                        <div className="flex flex-col lg:flex-row mb-18 items-center justify-center">
+                            {DetailWork.images && DetailWork.images.length > 0 && (
+                                <div className="w-[65vw] lg:w-[50vw] lg:mb-32 xl:w-[35vw] xl:mt-0 xl:ml-18 cursor-pointer">
+                                    <Caroussel
+                                        items={DetailWork.images.map((image) => ({
+                                            image: image.url,
+                                            onClick: () => handleImageClick(image.url),
+                                        }))}
+                                        showArrows={false}
+                                        showDots={true}
+                                        Component={ImageComponent}
+                                        currentIndex={DetailWork.images.findIndex((img) => img.url === currentImage) || 0}
+                                    />
                                 </div>
                             )}
-                            <div className="flex flex-col items-center">
-                                <p className="text-lg mt-10">Do we talk?</p>
-                                <Link
-                                    href="/contact"
-                                    className="w-[200px] text-lg border text-center border-white rounded-full px-4 py-2 transition-all duration-300 hover:bg-white hover:border-black hover:text-black transform hover:scale-110 mt-4"
-                                >
-                                    Contact me
-                                </Link>
+
+                            <div className="pt-8 md:p-10 md:pl-8 lg:p-4 text-white flex-grow">
+                                <p className="text-lg mt-10 sm:text-center">{DetailWork.detail}</p>
+                                <p className="text-lg mt-18 italic text-center font-extralight md:pr-18 md:pl-18 pb-6 xl:pr-36 xl:pl-36">
+                                    &quot;{DetailWork.quote}&quot;
+                                </p>
+                                <div className="flex justify-end pr-18 xl:pr-36 xl:pl-36">
+                                    <span className="text-lg italic font-extralight">
+                                        - {DetailWork.author}
+                                    </span>
+                                </div>
+
+                                <div className="flex flex-row justify-start gap-20 mt-18">
+                                    {DetailWork.linkThingiverse && (
+                                        <div className="flex flex-col items-center">
+                                            <p className="text-lg mt-10">Get model?</p>
+                                            <a href={DetailWork.linkThingiverse} target="_blank" rel="noopener noreferrer">
+                                                <img
+                                                    src="/Images/Cults.png"
+                                                    alt={`Imagen adicional de ${DetailWork.title}`}
+                                                    className="rounded-lg shadow-md h-[40px] w-[40px] mt-4 transition-transform duration-300 hover:scale-150"
+                                                />
+                                            </a>
+                                        </div>
+                                    )}
+                                    <div className="flex flex-col items-center">
+                                        <p className="text-lg mt-10">Do we talk?</p>
+                                        <Link
+                                            href="/contact"
+                                            className="w-[200px] text-lg border text-center border-white rounded-full px-4 py-2 transition-all duration-300 hover:bg-white hover:border-black hover:text-black transform hover:scale-110 mt-4"
+                                        >
+                                            Contact me
+                                        </Link>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
+                )}
                 {showModal && (
-                    <div className="fixed inset-0 bg-black bg-opacity-90 flex justify-center items-center z-50 pt-10"> {/* Reducir padding arriba */}
+                    <div className="fixed inset-0 bg-black bg-opacity-90 flex justify-center items-center z-50 pt-10">
                         <div className="relative w-[80vw] h-[95vh] overflow-hidden flex flex-col">
                             <button
                                 className="absolute top-4 right-4 text-white text-4xl z-50 cursor-pointer"
@@ -192,20 +185,18 @@ const Detail = () => {
                                 &#10005;
                             </button>
 
-                            {/* Imagen principal */}
-                            <div className="flex justify-center items-center h-[75%]"> {/* Aumentar la altura de la imagen principal */}
+                            <div className="flex justify-center items-center h-[75%]">
                                 <ImageComponent image={currentImage!} onClick={() => { }} isModal={true} />
                             </div>
 
-                            {/* Nueva columna de imágenes en miniatura debajo de la imagen principal */}
-                            <div className="flex justify-center overflow-x-auto space-x-4 py-4 mt-8 mb-8"> {/* Agregar margen arriba para espacio */}
-                                {DetailWork.images.map((image, index) => (
+                            <div className="flex justify-center overflow-y-auto space-x-4 py-4 mt-8 mb-8">
+                                {DetailWork?.images?.map((image, index) => (
                                     <img
                                         key={index}
-                                        src={image.url} // Mostrar la url de la imagen
+                                        src={image.url}
                                         alt={`Imagen adicional de ${DetailWork.title}`}
-                                        className={`rounded-lg shadow-md h-32  object-contain cursor-pointer ${currentImage === image.url ? 'border-2 border-blue-500' : ''}`} // Tamaño fijo para miniaturas
-                                        onClick={() => handleImageSelect(image.url)} // Usar la url para la selección
+                                        className={`rounded-lg cursor-pointer h-[125px] ${currentImage === image.url ? 'opacity-100' : 'opacity-50'}`}
+                                        onClick={() => handleImageSelect(image.url)}
                                     />
                                 ))}
                             </div>
@@ -213,12 +204,11 @@ const Detail = () => {
                     </div>
                 )}
 
-
-
             </div>
             <Footer />
         </div>
     );
+
 };
 
 export default Detail;
