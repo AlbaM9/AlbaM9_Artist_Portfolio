@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       fontFamily: {
         roboto: ['Roboto', 'sans-serif'],
-        dancing: ['Dancing Script', 'cursive'],
+        dancing: ['Dancing Script'],
       },
       spacing: {
         // Añade valores personalizados aquí
