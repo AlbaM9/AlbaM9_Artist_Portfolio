@@ -143,9 +143,9 @@ const Detail = () => {
                         </div>
                     )}
 
-                    <div className="p-10 text-white flex-grow pl-8 ">
+                    <div className="pt-8 md:p-10 md:pl-8 lg:p-4 text-white flex-grow  ">
                         <p className="text-lg mt-10 sm:text-center">{DetailWork.detail}</p>
-                        <p className="text-lg mt-18 italic text-center font-extralight pr-18 pl-18 pb-6 xl:pr-36 xl:pl-36">
+                        <p className="text-lg mt-18 italic text-center font-extralight md:pr-18 md:pl-18 pb-6 xl:pr-36 xl:pl-36">
                             &quot;{DetailWork.quote}&quot;
                         </p>
                         <div className="flex justify-end pr-18 xl:pr-36 xl:pl-36">
