@@ -5,6 +5,7 @@ import React, { useEffect, useState, Suspense } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Link from 'next/link';
+import RingLoader from "react-spinners/RingLoader";
 
 interface Work {
     id: number;
@@ -128,7 +129,7 @@ const JobsPage: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10 p-10">
                     {loading ? (
                         <div className="col-span-1 md:col-span-2 lg:col-span-3 flex justify-center items-center text-center text-xl text-white h-[100vh]">
-                            Loading...
+                            <RingLoader color="#ffffff" loading={loading} size={60} />
                         </div>
                     ) : filteredWorks.length > 0 ? (
                         filteredWorks.map((work) => (

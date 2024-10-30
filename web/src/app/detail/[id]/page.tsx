@@ -6,6 +6,7 @@ import { useEffect, useState, useRef, Suspense } from 'react';
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
 import Caroussel from '../../../components/Caroussel';
+import RingLoader from "react-spinners/RingLoader";
 
 interface Work {
     id: number;
@@ -106,7 +107,7 @@ const Detail = () => {
             <div className="p-16 flex-grow  flex items-center justify-center transition-opacity duration-500">
                 {loading ? (
                     <div className="flex items-center justify-center h-screen text-white">
-                        Loading...
+                        <RingLoader color="#ffffff" loading={loading} size={60} />
                     </div>
                 ) : error ? (
                     <div className="flex items-center justify-center h-screen text-white">
