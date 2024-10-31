@@ -15,7 +15,7 @@ interface BannersProps {
 const Banners: React.FC<BannersProps> = ({ backgroundImage, title, link, }) => {
     return (
         <section className="flex justify-center items-center">
-            <Link href={link} className="group w-[43vw] aspect-square relative flex flex-col">
+            <Link href={link} className="group w-[60vw] md:w-[50vw] lg:w-[43vw] aspect-square relative flex flex-col">
                 <div
                     className="w-full h-full bg-cover bg-center bg-no-repeat rounded-full relative transition-transform duration-300 ease-in-out"
                     style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover' }}

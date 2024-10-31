@@ -122,9 +122,9 @@ const Detail = () => {
                         <h1 className="text-4xl font-bold text-white text-center mb-4">{DetailWork.title}</h1>
                         <p className="mt-2 text-lg text-white text-center">{DetailWork.description}</p>
 
-                        <div className="flex flex-col lg:flex-row mb-18 items-center justify-center">
+                        <div className="flex flex-col mt-8 lg:flex-row mb-18 items-center justify-center">
                             {DetailWork.images && DetailWork.images.length > 0 && (
-                                <div className="w-[65vw] lg:w-[50vw] lg:mb-32 xl:w-[35vw] xl:mt-0 xl:ml-18 cursor-pointer">
+                                <div className="w-[65vw] md:w-[50vw]   lg:w-[40vw] lg:mb-32 xl:w-[35vw] xl:mt-0 xl:ml-18 cursor-pointer">
                                     <Caroussel
                                         items={DetailWork.images.map((image) => ({
                                             image: image.url,
@@ -149,9 +149,9 @@ const Detail = () => {
                                     </span>
                                 </div>
 
-                                <div className="flex flex-row justify-start gap-20 mt-18">
+                                <div className="flex flex-row justify-center gap-20 mt-18 md:mt-16 lg:justify-start ">
                                     {DetailWork.linkThingiverse && (
-                                        <div className="flex flex-col items-center">
+                                        <div className="flex flex-col  ">
                                             <p className="text-lg mt-10">Get model?</p>
                                             <a href={DetailWork.linkThingiverse} target="_blank" rel="noopener noreferrer">
                                                 <img

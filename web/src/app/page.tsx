@@ -13,6 +13,7 @@ import Landing from "../components/Landing";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import Banners from "../components/Banners";
+import Caroussel from "../components/Caroussel";
 
 interface HomeProps { }
 
@@ -59,7 +60,20 @@ const Home: React.FC<HomeProps> = () => {
 
       <section id="gallery" className=" mt-18  md:mt-24 lg:mt-32 lg:mb-32 ">
         <h1 className="text-white text-2xl md:text-4xl text-center">Jobs</h1>
-        <div className="flex flex-col items-center  mt-4 sm:p-6 md:p-8 lg:p-10">
+
+        {/* Carrusel visible solo en pantallas pequeñas */}
+        <div className="block lg:hidden mt-18 mb-18">
+          <Caroussel
+            items={itemsForBanners}
+            Component={Banners}
+            showArrows={false}
+            showDots={true}
+            currentIndex={0}
+          />
+        </div>
+
+
+        <div className="flex flex-col items-center mt-4 lg:p-10 hidden lg:flex">
           {/* Elemento Superior */}
           <div className="flex justify-center w-full mb-4">
             <div className="w-full sm:w-[20rem] md:w-[24rem] h-auto aspect-w-16 aspect-h-9 transition-transform duration-300 hover:scale-105">
@@ -72,9 +86,9 @@ const Home: React.FC<HomeProps> = () => {
           </div>
 
           {/* Elementos Inferiores */}
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-1 lg:grid-cols-2 ">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-1 lg:grid-cols-2">
             {itemsForBanners.slice(1, 3).map((item) => (
-              <div key={item.id} className="flex justify-center mb-4 w-full">
+              <div key={item.id} className="flex justify-center w-full">
                 <div className="w-full sm:w-[20rem] md:w-[24rem] h-auto aspect-w-16 aspect-h-9 transition-transform duration-300 hover:scale-105">
                   <Banners
                     backgroundImage={item.backgroundImage}
@@ -86,6 +100,7 @@ const Home: React.FC<HomeProps> = () => {
             ))}
           </div>
         </div>
+
       </section>
 
       <section id="contact" className="py-16">
