@@ -159,7 +159,7 @@ const JobsPage: React.FC = () => {
     );
 };
 
-// Componente que envuelve JobsPage en Suspense
+
 const Page = () => {
     return (
         <Suspense fallback={<div>Cargando...</div>}>
