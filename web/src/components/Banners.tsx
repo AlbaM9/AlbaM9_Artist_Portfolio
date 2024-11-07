@@ -20,7 +20,7 @@ const Banners: React.FC<BannersProps> = ({ backgroundImage, title, link, }) => {
                     className="w-full h-full bg-cover bg-center bg-no-repeat rounded-full relative transition-transform duration-300 ease-in-out"
                     style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover' }}
                 >
-                    {/* Efecto de filtro BYN */}
+
                     <div className="absolute inset-0 w-full h-full rounded-full bg-black bg-opacity-30 transition-all duration-300 ease-in-out filter group-hover:filter-none group-hover:bg-opacity-0"></div>
 
 
